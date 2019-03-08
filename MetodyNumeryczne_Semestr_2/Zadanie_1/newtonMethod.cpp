@@ -1,6 +1,7 @@
 #include <iostream>
 #include "newtonMethod.hpp"
 #include "mathFunctions.hpp"
+#include <cmath>
 
 using namespace std;
 
@@ -14,8 +15,11 @@ double newtonMetod(double a, double b, double x0, mathFunction::function func) {
 		cout << "Function doesn't meet essential assumptions";
 		return;
 	}
-	while ()
-
-
-
+	double x = x0 - (func(x0) - derivative);
+	while (abs(func(x)) <= std::numeric_limits<double>::epsilon()) { 
+	// while( abs(x0 - currentX) <= std::numeric_limits<double>::epsilon()) - inny warunek stopu
+		double tempX = x - (func(x) - derivative); //pochodna w punkcie currentX
+		x = tempX;
+	}
+	return x;
 }
