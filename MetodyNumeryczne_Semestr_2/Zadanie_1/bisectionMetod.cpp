@@ -1,20 +1,22 @@
 #include <iostream>
 #include "bisectionMetod.hpp"
+#include "mathFunctions.hpp"
 
+using namespace std;
 
-double bisection(double a, double b) {
+double bisection(double a, double b, mathFunction::function func) {
 	double E; //ten epsilon ale jeszcze nie wiem czym on jest
-	double result_a = polynomial(a); //polynomial = przykladowa funkcja
-	double result_b = polynomial(b);
+	double result_a = func(a);
+	double result_b = func(b);
 	if ((result_a * result_b) > 0) {
-		cout << "Function doesn't meet essential assumptions "; // wartosc funkcji na krancach przedzialu musi miev rozne znaki
+		cout << "Function doesn't meet essential assumptions"; // wartosc funkcji na krancach przedzialu musi miev rozne znaki
 		return;
 	}
 	double current_x;
 	double result_x;
 	while (abs(a - b) < E) {
 		current_x = (a - b) / 2;
-		result_x = polynomial(current_x);
+		result_x = func(current_x);
 		if (abs(result_x) < E) {
 			return current_x;
 		}

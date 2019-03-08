@@ -1,3 +1,3 @@
 #pragma once
 
-double bisection(double a, double b);
+double bisection(double a, double b, mathFunction::function func);
