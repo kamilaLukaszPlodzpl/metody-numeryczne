@@ -1,10 +1,9 @@
 #include <iostream>
-#include "sampleMathFunctions.hpp"
+#include "mathFunctions.hpp"
 using namespace std;
 
-int main(int argc, char* argv[])
-{
+int main(int argc, char* argv[]) {
 	double x = 14.4;
-	cout << samplePolynomial(x) << endl;
+	//cout << mathFunction::superposition << endl;
 	cin.get();
 }

@@ -120,10 +120,10 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
       <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</DeploymentContent>
     </ClCompile>
-    <ClCompile Include="sampleMathFunctions.cpp" />
+    <ClCompile Include="mathFunctions.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="sampleMathFunctions.hpp" />
+    <ClInclude Include="mathFunctions.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
