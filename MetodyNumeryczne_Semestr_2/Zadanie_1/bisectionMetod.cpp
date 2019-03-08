@@ -5,7 +5,6 @@
 using namespace std;
 
 double bisection(double a, double b, mathFunction::function func) {
-	double E; //ten epsilon ale jeszcze nie wiem czym on jest
 	double result_a = func(a);
 	double result_b = func(b);
 	if ((result_a * result_b) > 0) {
@@ -14,10 +13,10 @@ double bisection(double a, double b, mathFunction::function func) {
 	}
 	double current_x;
 	double result_x;
-	while (abs(a - b) < E) {
+	while (abs(a - b) < std::numeric_limits<double>::epsilon()) { 
 		current_x = (a - b) / 2;
 		result_x = func(current_x);
-		if (abs(result_x) < E) {
+		if (abs(result_x) < std::numeric_limits<double>::epsilon()) {
 			return current_x;
 		}
 		if (result_a * result_x < 0) {
