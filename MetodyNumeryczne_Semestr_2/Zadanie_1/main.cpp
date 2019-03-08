@@ -1,5 +1,6 @@
 #include <iostream>
-#include "sampleMathFunctions.hpp"
+#include "mathFunctions.hpp"
+
 using namespace std;
 
 double bisection(double a, double b) {
@@ -7,7 +8,7 @@ double bisection(double a, double b) {
 	double result_a = polynomial(a); //polynomial = przykladowa funkcja
 	double result_b = polynomial(b);
 	if ((result_a * result_b) > 0) {
-		cout << "Function doesn't meet essential assumptions "; // wartoœæ funkcji na krañcach przedzia³u musi mieæ ró¿ne znaki
+		cout << "Function doesn't meet essential assumptions "; // wartoï¿½ï¿½ funkcji na kraï¿½cach przedziaï¿½u musi mieï¿½ rï¿½ne znaki
 		return 1;
 	}
 	double current_x;
@@ -37,6 +38,6 @@ double newtonMetod(double a, double b) {
 }
 int main(int argc, char* argv[]) {
 	double x = 14.4;
-	cout << samplePolynomial(x) << endl;
+	//cout << mathFunction::superposition << endl;
 	cin.get();
 }
