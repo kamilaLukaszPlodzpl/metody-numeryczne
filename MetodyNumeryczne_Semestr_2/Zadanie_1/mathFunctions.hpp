@@ -13,6 +13,8 @@ namespace mathFunction
 	void registerFunction(function func, std::string name);
 
 	std::vector<functionMeta> list(0);
+
+	void initFunctions();
 }
 //double samplePolynomial(double x);//Wielomian
 //double sampleTrigonometric(double x);//Trygonometryczna
