@@ -121,9 +121,13 @@
       <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</DeploymentContent>
     </ClCompile>
     <ClCompile Include="mathFunctions.cpp" />
+    <ClCompile Include="bisectionMetod.cpp" />
+    <ClCompile Include="newtonMethod.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="bisectionMetod.hpp" />
     <ClInclude Include="mathFunctions.hpp" />
+    <ClInclude Include="newtonMethod.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
