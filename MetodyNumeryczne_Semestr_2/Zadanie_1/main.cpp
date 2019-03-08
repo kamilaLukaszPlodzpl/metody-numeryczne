@@ -26,8 +26,16 @@ double bisection(double a, double b) {
 	return current_x;
 }
 
-int main(int argc, char* argv[])
-{
+double newtonMetod(double a, double b) {
+
+	if (func(a) * func(b) > 0) {
+		cout << "Function doesn't meet essential assumptions ";
+		return 1;
+	}
+
+
+}
+int main(int argc, char* argv[]) {
 	double x = 14.4;
 	cout << samplePolynomial(x) << endl;
 	cin.get();
