@@ -12,7 +12,7 @@ double bisection(double a, double b, mathFunction::function func) {
 	double x = 0;
 	while (abs(a - b) > std::numeric_limits<double>::epsilon()) {
 		x = (a + b) / 2;
-		if (func(x) < std::numeric_limits<double>::epsilon()) {
+		if (abs(func(x)) < std::numeric_limits<double>::epsilon()) {
 			return x;
 		}
 		if (func(x)*(func(a)) < 0) {
