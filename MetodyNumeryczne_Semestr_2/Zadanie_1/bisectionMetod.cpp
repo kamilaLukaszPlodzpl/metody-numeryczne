@@ -1,13 +1,14 @@
 #include <iostream>
 #include "bisectionMetod.hpp"
 #include "mathFunctions.hpp"
+#include <cmath>
 
 using namespace std;
 
 double bisection(double a, double b, mathFunction::function func) {
 	if ((func(a)) * (func(b)) > 0) {
 		cout << "Function doesn't meet essential assumptions"; // wartosc funkcji na krancach przedzialu musi miev rozne znaki
-		return;
+		return NULL;
 	}
 	double x = 0;
 	while (abs(a - b) > std::numeric_limits<double>::epsilon()) {

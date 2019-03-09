@@ -7,13 +7,9 @@ using namespace std;
 
 double newtonMetod(double a, double b, double x0, mathFunction::function func) {
 	double derivative; // trzeba wpisac wartosc pochodnej
-	if (func(a) * func(b) < 0) {
+	if (func(a) * func(b) < 0 || derivative == 0) {
 		cout << "Function doesn't meet essential assumptions";
-		return;
-	}
-	if (derivative == 0) {
-		cout << "Function doesn't meet essential assumptions";
-		return;
+		return NULL; 
 	}
 	double x = x0 - (func(x0) - derivative);
 	while (abs(func(x)) <= std::numeric_limits<double>::epsilon()) { 
