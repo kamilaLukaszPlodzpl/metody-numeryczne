@@ -20,15 +20,18 @@ int main(int argc, char* argv[]) {
 	*/
 	double intervalStart;
 	double intervalEnd;
+	int bisectionIteration = 0;
+	int newtonIteration = 0;
 	cout << "Start point for search interval:";
 	cin >> intervalStart;
 	cout << "End point for search interval:";
 	cin >> intervalEnd;
 	double firstX;
 	cin >> firstX; //need for newton method
-	double bisectionX = bisection( intervalStart, intervalEnd, f.func );
-	double newtonX = newtonMetod( intervalStart, intervalEnd, firstX, f.func );
-	cout << "Bisection method =" << bisectionX << '\n' << "Newton metod =" << newtonX << '\n';
+	double bisectionX = bisection(f.func, intervalStart, intervalEnd, bisectionIteration );
+	double newtonX = newtonMetod(f.func, intervalStart, intervalEnd, firstX, newtonIteration );
+	cout << "Bisection method =" << bisectionX << "Iteration = " << bisectionIteration << '\n';
+	cout << "Newton metod =" << newtonX << "Iteration = " << newtonIteration << '\n';
 	cin.get();
 	cin.get();
 	cin.get();

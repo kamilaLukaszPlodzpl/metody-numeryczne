@@ -1,3 +1,4 @@
 #pragma once
 #include "mathFunctions.hpp"
-double bisection(double a, double b, mathFunction::function func);
+
+double bisection(mathFunction::function func, double a, double b, int &iteration);

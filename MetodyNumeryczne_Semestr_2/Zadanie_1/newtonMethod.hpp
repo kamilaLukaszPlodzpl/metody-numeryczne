@@ -1,3 +1,4 @@
 #pragma once
 #include "mathFunctions.hpp"
-double newtonMetod(double a, double b, double x0, mathFunction::function func); //metoda stycznych
+
+double newtonMetod(mathFunction::function func, double a, double b, double x, int &iteration); //metoda stycznych
