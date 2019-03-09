@@ -54,6 +54,7 @@ namespace mathFunction
 		arr.push_back(createFunctionMeta(mathFunctionList::Polynomial_1, "4x^3+2x^2+x-5"));
 		arr.push_back(createFunctionMeta(mathFunctionList::Polynomial_2, "x^2+x-3"));
 		arr.push_back(createFunctionMeta(mathFunctionList::Trygonometric_1, "4sin(2x)"));
+		arr.push_back(createFunctionMeta(mathFunctionList::Exponetial_1, "2^x"));
 		return arr;
 	}
 }

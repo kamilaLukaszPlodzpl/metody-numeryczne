@@ -17,4 +17,8 @@ namespace mathFunctionList
 	double Trygonometric_1(double x) {// 4sin(2x)
 		return 4 * sin(2 * x);
 	}
+
+	double Exponetial_1(double x) {// 2^x
+		return exp2(x);
+	}
 }
