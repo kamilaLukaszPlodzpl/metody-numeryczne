@@ -6,11 +6,11 @@
 using namespace std;
 
 int main(int argc, char* argv[]) {
-	/*
-	// Przyk³adowe wybranie 2 funkcji i z³o¿enie, obliczenie wartoœci dla danego x0 po z³o¿eniu
-	double x = 3;
+	// Wybranie 2 funkcji
 	mathFunction::functionMeta f, g;
 	mathFunction::selectTwoFunctions(f, g);
+	/*
+	// Z³o¿enie i obliczenie wartoœci 
 	cout << "x0 = " << x << endl;
 	cout << "f(x)=" << f.name << endl;
 	cout << "g(x)=" << g.name << endl;
