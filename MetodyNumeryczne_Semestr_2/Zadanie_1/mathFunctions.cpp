@@ -1,5 +1,5 @@
 #include "mathFunctions.hpp"
-#include "mathFunctionsList.cpp"
+#include "mathFunctionsList.hpp"
 #include <string>
 #include <vector>
 #include <iostream>

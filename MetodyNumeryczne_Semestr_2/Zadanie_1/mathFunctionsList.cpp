@@ -1,4 +1,4 @@
-
+#include "mathFunctionsList.hpp"
 namespace mathFunctionList
 {
 	double same(double x) {// f(x)=x
