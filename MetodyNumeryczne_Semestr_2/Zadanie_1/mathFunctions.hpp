@@ -8,13 +8,21 @@ namespace mathFunction
 
 	double superposition(function f, function g, double x);//Oblicza f(g(x))
 
-	struct functionMeta;
+	struct functionMeta {
+		function func;
+		std::string name;
+	};
 
-	void registerFunction(function func, std::string name);
+	typedef std::vector<functionMeta> functionMetaArr;
 
-	std::vector<functionMeta> list(0);
+	functionMeta createFunctionMeta();
 
-	void initFunctions();
+	functionMeta createFunctionMeta(function func, std::string name);
+
+	void selectTwoFunctions(functionMeta &f, functionMeta &g);
+
+	functionMetaArr getFunctions();
+
 }
 //double samplePolynomial(double x);//Wielomian
 //double sampleTrigonometric(double x);//Trygonometryczna

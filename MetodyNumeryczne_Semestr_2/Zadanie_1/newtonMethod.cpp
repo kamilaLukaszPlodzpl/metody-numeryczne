@@ -5,7 +5,7 @@
 using namespace std;
 
 double newtonMetod(double a, double b, double x0, mathFunction::function func) {
-	double derivative; // trzeba wpisac wartosc pochodnej
+	double derivative = 1; // trzeba wpisac wartosc pochodnej, ustawione na 1 bo nie kompiluje sie ale do poprawy
 	if (func(a) * func(b) < 0 || derivative == 0) {
 		cout << "Function doesn't meet essential assumptions";
 		return NULL; 
