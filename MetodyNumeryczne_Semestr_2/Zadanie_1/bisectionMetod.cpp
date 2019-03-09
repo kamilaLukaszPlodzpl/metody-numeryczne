@@ -1,6 +1,5 @@
 #include <iostream>
 #include "bisectionMetod.hpp"
-#include "mathFunctions.hpp"
 #include <cmath>
 
 using namespace std;

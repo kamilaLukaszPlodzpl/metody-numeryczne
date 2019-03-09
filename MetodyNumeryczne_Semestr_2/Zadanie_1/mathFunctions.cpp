@@ -10,14 +10,14 @@ namespace mathFunction
 	}
 
 	struct functionMeta {
-		function func;
-		std::string name;
+		//function func;
+		//std::string name;
 	};
 
 	void registerFunction(function func, std::string name) {
 		functionMeta a = {
-			func,
-			name
+			//func,
+			//name
 		};
 		list.push_back(a);
 	}

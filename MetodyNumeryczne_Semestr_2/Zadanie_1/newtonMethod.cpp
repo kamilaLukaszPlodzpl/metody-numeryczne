@@ -1,6 +1,5 @@
 #include <iostream>
 #include "newtonMethod.hpp"
-#include "mathFunctions.hpp"
 #include <cmath>
 
 using namespace std;
