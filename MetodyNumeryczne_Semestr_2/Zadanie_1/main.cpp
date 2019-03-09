@@ -6,6 +6,8 @@
 using namespace std;
 
 int main(int argc, char* argv[]) {
+	/*
+	// Przyk³adowe wybranie 2 funkcji i z³o¿enie, obliczenie wartoœci dla danego x0 po z³o¿eniu
 	double x = 3;
 	mathFunction::functionMeta f, g;
 	mathFunction::selectTwoFunctions(f, g);
@@ -15,6 +17,7 @@ int main(int argc, char* argv[]) {
 	cout << "f(x0)=" << f.func(x) << endl;
 	cout << "g(x0)=" << g.func(x) << endl;
 	cout << "f(g(x0))=" << mathFunction::superposition(f.func, g.func, x) << endl;
+	*/
 	double intervalStart;
 	double intervalEnd;
 	cout << "Start point for search interval:";
