@@ -1,5 +1,5 @@
 #include "mathFunctions.hpp"
-#include "mathFunctionsList.cpp"
+#include "mathFunctionsList.hpp"
 #include <string>
 #include <vector>
 #include <iostream>
@@ -26,7 +26,7 @@ namespace mathFunction
 		functionMetaArr list = getFunctions();
 		size_t size = list.size();
 		for (int i = 0; i < size; i++)
-			std::cout << " " << i << ". " << list[i].name << std::endl;
+			std::cout << " " << i << ". f(x)=" << list[i].name << std::endl;
 
 		int fid = -1;
 		while (fid < 0 || fid >= size)
@@ -52,7 +52,8 @@ namespace mathFunction
 		functionMetaArr arr;
 		arr.push_back(createFunctionMeta(mathFunctionList::same, "x"));
 		arr.push_back(createFunctionMeta(mathFunctionList::Polynomial_1, "4x^3+2x^2+x-5"));
-		arr.push_back(createFunctionMeta(mathFunctionList::Polynomial_1, "x^2+x-3"));
+		arr.push_back(createFunctionMeta(mathFunctionList::Polynomial_2, "x^2+x-3"));
+		arr.push_back(createFunctionMeta(mathFunctionList::Trygonometric_1, "4sin(2x)"));
 		return arr;
 	}
 }

@@ -122,11 +122,13 @@
     </ClCompile>
     <ClCompile Include="mathFunctions.cpp" />
     <ClCompile Include="bisectionMetod.cpp" />
+    <ClCompile Include="mathFunctionsList.cpp" />
     <ClCompile Include="newtonMethod.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="bisectionMetod.hpp" />
     <ClInclude Include="mathFunctions.hpp" />
+    <ClInclude Include="mathFunctionsList.hpp" />
     <ClInclude Include="newtonMethod.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
