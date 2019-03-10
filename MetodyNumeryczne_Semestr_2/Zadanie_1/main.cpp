@@ -21,8 +21,8 @@ void algorithB() {
 
 int main(int argc, char* argv[]) {
 	// Select functions to calculate
-	mathFunction::functionMeta f, g;
-	mathFunction::selectTwoFunctions(f, g);
+	mathFunction::functionMeta f;
+	mathFunction::selectFunction(f);
 
 	//
 	char algorithm;

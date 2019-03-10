@@ -22,7 +22,7 @@ namespace mathFunction
 		return a;
 	}
 
-	void selectTwoFunctions(functionMeta &f, functionMeta &g) {
+	void selectFunction(functionMeta &f, functionMeta &g) {
 		functionMetaArr list = getFunctions();
 		size_t size = list.size();
 		for (int i = 0; i < size; i++)
@@ -46,6 +46,23 @@ namespace mathFunction
 
 		f = list[fid];
 		g = list[gid];
+	}
+
+	void selectFunction(functionMeta &f)
+	{
+		functionMetaArr list = getFunctions();
+		size_t size = list.size();
+		for (int i = 0; i < size; i++)
+			std::cout << " " << i << ". f(x)=" << list[i].name << std::endl;
+
+		int fid = -1;
+		while (fid < 0 || fid >= size)
+		{
+			std::cout << "Wskaz funkcje f(x) ";
+			std::cin >> fid;
+			std::cout << std::endl;
+		}
+		f = list[fid];
 	}
 
 	functionMetaArr getFunctions() {

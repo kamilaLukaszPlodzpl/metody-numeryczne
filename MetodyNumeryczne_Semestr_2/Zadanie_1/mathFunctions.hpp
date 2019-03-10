@@ -19,7 +19,9 @@ namespace mathFunction
 
 	functionMeta createFunctionMeta(function func, std::string name);
 
-	void selectTwoFunctions(functionMeta &f, functionMeta &g);
+	void selectFunction(functionMeta &f, functionMeta &g);
+
+	void selectFunction(functionMeta &f);
 
 	functionMetaArr getFunctions();
 
