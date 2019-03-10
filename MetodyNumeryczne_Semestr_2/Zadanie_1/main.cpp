@@ -20,18 +20,11 @@ void algorithB() {
 */
 
 int main(int argc, char* argv[]) {
-	// Wybranie 2 funkcji
+	// Select functions to calculate
 	mathFunction::functionMeta f, g;
 	mathFunction::selectTwoFunctions(f, g);
-	/*
-	// Z³o¿enie i obliczenie wartoœci 
-	cout << "x0 = " << x << endl;
-	cout << "f(x)=" << f.name << endl;
-	cout << "g(x)=" << g.name << endl;
-	cout << "f(x0)=" << f.func(x) << endl;
-	cout << "g(x0)=" << g.func(x) << endl;
-	cout << "f(g(x0))=" << mathFunction::superposition(f.func, g.func, x) << endl;
-	*/
+
+	//
 	char algorithm;
 	cout << "Select type of algorithm:" << '\n' << "a: accurancy" << '\n' << "b: iteration" << '\n';
 	cin >> algorithm;
@@ -41,33 +34,44 @@ int main(int argc, char* argv[]) {
 	cin >> intervalStart;
 	cout << "End point for search interval:";
 	cin >> intervalEnd;
+
+	// Need for newton method
 	double firstX;
 	cout << "Starting x =";
-	cin >> firstX; //need for newton method
-	if (algorithm == 'a') {
-		//algorithmA()
+	cin >> firstX;
+
+	// Calculate
+	if (algorithm == 'a') {// accurancy condition
+		
 		double epsilon;
 		cout << "Epsilon = ";
 		cin >> epsilon;
+
 		int bisectionIteration = 0;
 		int newtonIteration = 0;
 		double bisectionX = bisectionA(f.func, intervalStart, intervalEnd, epsilon, bisectionIteration);
 		double newtonX = newtonA(f.func, intervalStart, intervalEnd, firstX, epsilon, newtonIteration);
-		cout << "Bisection method =" << bisectionX << "    "<< "Iteration = " << bisectionIteration << '\n';
-		cout << "Newton metod =" << newtonX <<"     " << "Iteration = " << newtonIteration << '\n';
+
+		cout << "Bisection method =" << scientific << bisectionX << "    "<< "Iteration = " << bisectionIteration << '\n';
+		cout << "Newton metod =" << scientific << newtonX <<"     " << "Iteration = " << newtonIteration << '\n';
 	}
-	else if (algorithm == 'b') {
-		//algorithmB
+	else if (algorithm == 'b') {// iteration condition
+
 		int iteration;
 		cout << "Iteration =";
 		cin >> iteration;
+
 		double newtonEpsilon = 0;
 		double bisectionEpsilon = 0;
 		double bisectionX = bisectionB(f.func, intervalStart, intervalEnd, bisectionEpsilon, iteration);
 		double newtonX = newtonB(f.func, intervalStart, intervalEnd, firstX, newtonEpsilon, iteration);
-		cout << "Bisection method =" << bisectionX << "Acurrancy = " << bisectionEpsilon << '\n';
-		cout << "Newton metod =" << newtonX << "Iteration = " << newtonEpsilon << '\n';
+
+		cout << "Bisection method =" << scientific << bisectionX << "Acurrancy = " << bisectionEpsilon << '\n';
+		cout << "Newton metod =" << scientific << newtonX << "Iteration = " << newtonEpsilon << '\n';
 	}
+
+
+
 	 // dla funkcji g to samo jeszcze
 	cin.get();
 	cin.get();
