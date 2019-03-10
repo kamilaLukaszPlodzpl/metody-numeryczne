@@ -6,13 +6,9 @@
 
 namespace mathFunction
 {
-	double superposition(function f, function g, double x) {
-		return f(g(x));
-	}
-
-	functionMeta createFunctionMeta() {
-		return createFunctionMeta(mathFunctionList::same, "f(x)=x");
-	}
+	//double superposition(function f, function g, double x) {
+	//	return f(g(x));
+	//}
 
 	functionMeta createFunctionMeta(function func, function derivative, std::string name) {
 		functionMeta a = {
@@ -23,31 +19,29 @@ namespace mathFunction
 		return a;
 	}
 
-	void selectFunction(functionMeta &f, functionMeta &g) {
-		functionMetaArr list = getFunctions();
-		size_t size = list.size();
-		for (int i = 0; i < size; i++)
-			std::cout << " " << i << ". f(x)=" << list[i].name << std::endl;
-
-		int fid = -1;
-		while (fid < 0 || fid >= size)
-		{
-			std::cout << "Wskaz funkcje f(x) ";
-			std::cin >> fid;
-			std::cout << std::endl;
-		}
-
-		int gid = -1;
-		while (gid < 0 || gid >= size)
-		{
-			std::cout << "Wskaz funkcje g(x) ";
-			std::cin >> gid;
-			std::cout << std::endl;
-		}
-
-		f = list[fid];
-		g = list[gid];
-	}
+	//void selectFunction(functionMeta &f, functionMeta &g) {
+	//	functionMetaArr list = getFunctions();
+	//	size_t size = list.size();
+	//	for (int i = 0; i < size; i++)
+	//		std::cout << " " << i << ". f(x)=" << list[i].name << std::endl;
+	//	int fid = -1;
+	//	while (fid < 0 || fid >= size)
+	//	{
+	//		std::cout << "Wskaz funkcje f(x) ";
+	//		std::cin >> fid;
+	//		std::cout << std::endl;
+	//	}
+	//
+	//	int gid = -1;
+	//	while (gid < 0 || gid >= size)
+	//	{
+	//		std::cout << "Wskaz funkcje g(x) ";
+	//		std::cin >> gid;
+	//		std::cout << std::endl;
+	//	}
+	//	f = list[fid];
+	//	g = list[gid];
+	//}
 
 	void selectFunction(functionMeta &f)
 	{

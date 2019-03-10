@@ -6,7 +6,7 @@ namespace mathFunction
 {
 	typedef double(*function)(double);
 
-	double superposition(function f, function g, double x);//Oblicza f(g(x))
+	//double superposition(function f, function g, double x);//Oblicza f(g(x))
 
 	struct functionMeta {
 		function func;
@@ -16,11 +16,9 @@ namespace mathFunction
 
 	typedef std::vector<functionMeta> functionMetaArr;
 
-	functionMeta createFunctionMeta();
+	functionMeta createFunctionMeta(function func,function derivative, std::string name);
 
-	functionMeta createFunctionMeta(function func, std::string name);
-
-	void selectFunction(functionMeta &f, functionMeta &g);
+	//void selectFunction(functionMeta &f, functionMeta &g);
 
 	void selectFunction(functionMeta &f);
 

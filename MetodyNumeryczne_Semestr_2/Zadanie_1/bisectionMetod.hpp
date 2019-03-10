@@ -2,4 +2,4 @@
 #include "mathFunctions.hpp"
 
 double bisectionA(mathFunction::function func, double a, double b, double epsilon, int &iteration);// warunek dokladnosci
-double bisectionB(mathFunction::function func, double a, double b, double E, int &iteration);// warunek iteracji
+double bisectionB(mathFunction::function func, double a, double b, double &epsilon, int iteration);// warunek iteracji
