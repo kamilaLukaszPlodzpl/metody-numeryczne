@@ -32,7 +32,7 @@ double bisectionB(mathFunction::function func, double a, double b, double &epsil
 		cout << "Error, f(" << a << ") * f(" << b << ") >= 0. f(a)*f(b) must be less than zero!\n";
 		return NULL;
 	}
-	double x = 0;
+	double x = (a+b)/2;
 	int i = 0;
 	while (i < iteration) {
 		i++;
@@ -45,7 +45,7 @@ double bisectionB(mathFunction::function func, double a, double b, double &epsil
 		}
 	}
 	x = (a + b) / 2;
-	//epsilon= abs( 0 - func(x) ); dok³adnoœæ przybli¿enia do 0
+	epsilon = abs(a - b) / 2;
 	return x;
 }
 

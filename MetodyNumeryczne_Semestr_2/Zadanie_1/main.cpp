@@ -1,7 +1,10 @@
 #include <iostream>
+#include <iomanip>
 #include "mathFunctions.hpp"
 #include "bisectionMetod.hpp"
 #include "newtonMethod.hpp"
+
+
 
 using namespace std;
 
@@ -28,10 +31,10 @@ void algorithIteration(mathFunction::functionMeta f, const double &intervalStart
 	double newtonEpsilon = 0;
 	double bisectionEpsilon = 0;
 	double bisectionX = bisectionB(f.func, intervalStart, intervalEnd, bisectionEpsilon, iteration);
-	double newtonX = newtonB(f.func, f.derivativeFunc, intervalStart, intervalEnd, newtonEpsilon, iteration);
+	//double newtonX = newtonB(f.func, f.derivativeFunc, intervalStart, intervalEnd, newtonEpsilon, iteration);
 
-	cout << "Bisection method =" << scientific << bisectionX << "Acurrancy = " << scientific << bisectionEpsilon << '\n';
-	cout << "Newton metod =" << scientific << newtonX << "Acurrancy = " << scientific << newtonEpsilon << '\n';
+	cout << "Bisection method =" << setprecision(50) << bisectionX << " Acurrancy = " << setprecision(50) << bisectionEpsilon << '\n';
+	//cout << "Newton metod =" << scientific << newtonX << "Acurrancy = " << scientific << newtonEpsilon << '\n';
 }
 
 int main(int argc, char* argv[]) {
