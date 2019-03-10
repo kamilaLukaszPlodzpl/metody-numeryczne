@@ -38,7 +38,9 @@ double bisectionB(mathFunction::function func, double a, double b, double E, int
 		if (func(x)*(func(a)) < 0) {
 			b = x;
 		}
-		a = x;
+		else {
+			a = x;
+		}
 	}
 	//E = abs( 0 - func(x) ); dok³adnoœæ przybli¿enia do 0
 	return x;
