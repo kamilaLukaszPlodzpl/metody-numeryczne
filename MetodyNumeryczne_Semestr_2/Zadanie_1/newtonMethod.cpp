@@ -4,17 +4,14 @@
 
 using namespace std;
 
-double newtonA(mathFunction::function func, double a, double b, double x, double E, int &iteration) {
+double newtonA(mathFunction::function func, mathFunction::function derivative, double a, double b, double x, double E, int &iteration) {
 	if (func(a) * func(b) > 0) {
 		cout << "Function doesn't meet essential assumptions";
 		return NULL; 
 	}
 	while (abs(func(x)) <= E) { 
-		double derivative = 0;
-		cout << "Pochodna w punkcie x=" << x << ':\n';
-		cin >> derivative;
 	// while( abs(x0 - currentX) <= std::numeric_limits<double>::epsilon()) - inny warunek stopu
-		double tempX = x - (func(x)/derivative);
+		double tempX = x - (func(x)/derivative(x));
 		x = tempX;
 		iteration++;
 	}

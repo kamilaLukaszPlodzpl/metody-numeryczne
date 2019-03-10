@@ -70,9 +70,6 @@ int main(int argc, char* argv[]) {
 		cout << "Newton metod =" << scientific << newtonX << "Iteration = " << newtonEpsilon << '\n';
 	}
 
-
-
-	 // dla funkcji g to samo jeszcze
 	cin.get();
 	cin.get();
 	cin.get();

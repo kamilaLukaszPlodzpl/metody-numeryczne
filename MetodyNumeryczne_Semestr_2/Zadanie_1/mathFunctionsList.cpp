@@ -33,7 +33,7 @@ namespace mathFunctionList
 	double Exponetial_1(double x) {// 2^x
 		return exp2(x);
 	}
-	double derivative_Trygonometric_1(double x) {
+	double derivative_Exponential_1(double x) {
 
 	}
 }

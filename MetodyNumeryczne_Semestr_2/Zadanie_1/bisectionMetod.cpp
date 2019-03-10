@@ -23,8 +23,8 @@ double bisectionA(mathFunction::function func, double a, double b, double E, int
 		else {
 			a = x;
 		}
-		//cout << x << iteration;
 	}
+	x = (a + b) / 2;
 	return x;
 }
 //*/
@@ -71,6 +71,7 @@ double bisectionB(mathFunction::function func, double a, double b, double E, int
 			a = x;
 		}
 	}
+	x = (a + b) / 2;
 	//E = abs( 0 - func(x) ); dok³adnoœæ przybli¿enia do 0
 	return x;
 }
