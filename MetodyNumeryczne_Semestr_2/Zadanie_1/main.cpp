@@ -33,7 +33,7 @@ int main(int argc, char* argv[]) {
 	cout << "f(g(x0))=" << mathFunction::superposition(f.func, g.func, x) << endl;
 	*/
 	char algorithm;
-	cout << "Select type of algorithm:" << '\n' << "a: accurancy" << '\n' << "b: itaration" << '\n';
+	cout << "Select type of algorithm:" << '\n' << "a: accurancy" << '\n' << "b: iteration" << '\n';
 	cin >> algorithm;
 	double intervalStart;
 	double intervalEnd;
@@ -68,7 +68,7 @@ int main(int argc, char* argv[]) {
 		cout << "Bisection method =" << bisectionX << "Acurrancy = " << bisectionEpsilon << '\n';
 		cout << "Newton metod =" << newtonX << "Iteration = " << newtonEpsilon << '\n';
 	}
-	 // dla funkcji g again 
+	 // dla funkcji g to samo jeszcze
 	cin.get();
 	cin.get();
 	cin.get();

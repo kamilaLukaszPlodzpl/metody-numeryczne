@@ -27,7 +27,7 @@ double bisectionA(mathFunction::function func, double a, double b, double E, int
 
 double bisectionB(mathFunction::function func, double a, double b, double E, int &iteration) {
 	if ((func(a)) * (func(b)) > 0) {
-		cout << "Function doesn't meet essential assumptions"; // wartosc funkcji na krancach przedzialu musi miec rozne znaki
+		cout << "Function doesn't meet essential assumptions";
 		return NULL;
 	}
 	double x = 0;
@@ -39,8 +39,7 @@ double bisectionB(mathFunction::function func, double a, double b, double E, int
 			b = x;
 		}
 		a = x;
-		//cout << x << iteration;
 	}
-	// To do : obliczanie dokladnosci E= 
+	//E = abs( 0 - func(x) ); dok³adnoœæ przybli¿enia do 0
 	return x;
 }
