@@ -14,9 +14,10 @@ namespace mathFunction
 		return createFunctionMeta(mathFunctionList::same, "f(x)=x");
 	}
 
-	functionMeta createFunctionMeta(function func, std::string name) {
+	functionMeta createFunctionMeta(function func, function derivative, std::string name) {
 		functionMeta a = {
 			func,
+			derivative,
 			name
 		};
 		return a;

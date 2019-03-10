@@ -10,6 +10,7 @@ namespace mathFunction
 
 	struct functionMeta {
 		function func;
+		function derivativeFunc;
 		std::string name;
 	};
 
