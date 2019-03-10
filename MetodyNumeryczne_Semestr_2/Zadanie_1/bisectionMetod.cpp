@@ -20,8 +20,7 @@ double bisectionA(mathFunction::function func, double a, double b, double E, int
 		if (func(x)*(func(a)) < 0) {
 			b = x;
 		}
-		else
-		{
+		else {
 			a = x;
 		}
 		//cout << x << iteration;
