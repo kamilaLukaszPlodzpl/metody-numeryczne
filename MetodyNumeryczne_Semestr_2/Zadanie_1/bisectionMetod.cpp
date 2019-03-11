@@ -35,7 +35,6 @@ double bisectionB(mathFunction::function func, double a, double b, double &epsil
 	double x = 0;
 	int i = 0;
 	while (i < iteration) {
-		i++;
 		x = (a + b) / 2;
 		if (func(x)*(func(a)) < 0) {
 			b = x;
@@ -43,9 +42,10 @@ double bisectionB(mathFunction::function func, double a, double b, double &epsil
 		else {
 			a = x;
 		}
+		i++;
 	}
 	x = (a + b) / 2;
-	//epsilon= abs( 0 - func(x) ); dok³adnoœæ przybli¿enia do 0
+	//epsilon = 
 	return x;
 }
 
