@@ -6,25 +6,30 @@ using namespace std;
 
 double newtonA(mathFunction::function func, mathFunction::function derivative, double a, double b, double epsilon, int &iteration) {//metoda stycznych
 	if (func(a) * func(b) > 0) {
-		cout << "Function doesn't meet essential assumptions";
+		cout << "Error, f(" << a << ") * f(" << b << ") >= 0. f(a)*f(b) must be less than zero!\n";
 		return NULL; 
 	}
+
 	double firstX;
 	cout << "Starting x =";
 	cin >> firstX;
 
-	while (abs(func(firstX)) <= epsilon) {
-	// while( abs(x0 - currentX) <= std::numeric_limits<double>::epsilon()) - inny warunek stopu
-		double tempX = firstX - (func(firstX)/derivative(firstX));
-		firstX = tempX;
+	double nextX = 0;
+
+	while (abs(firstX - nextX) >= epsilon) {
 		iteration++;
+		if (abs(func(firstX)) <= epsilon) {
+			return firstX;
+		}
+		double nextX = firstX - (func(firstX)/derivative(firstX));
+		firstX = nextX;
 	}
 	return firstX;
 }
 
 double newtonB(mathFunction::function func, mathFunction::function derivative, double a, double b, double &epsilon, int iteration) {
-	if ( func(a) * func(b) > 0 ) {
-		cout << "Function doesn't meet essential assumptions";
+	if (func(a) * func(b) > 0) {
+		cout << "Error, f(" << a << ") * f(" << b << ") >= 0. f(a)*f(b) must be less than zero!\n";
 		return NULL;
 	}
 	int i = 0;
@@ -33,12 +38,13 @@ double newtonB(mathFunction::function func, mathFunction::function derivative, d
 	cout << "Starting x =";
 	cin >> firstX;
 
+	double nextX = 0;
 
 	while (i <= iteration) {
-		double tempX = firstX - ( func(firstX) / derivative(firstX) );
-		firstX = tempX;
-		iteration++;
+		double nextX = firstX - (func(firstX) / derivative(firstX));
+		firstX = nextX;
+		i++;
 	}
-	//epsilon = abs( 0 - func(x) ); dok³adnoœæ przybli¿enia do 0
+	// dok³adnoœæ obliczeñ epsilon=
 	return firstX;
 }
