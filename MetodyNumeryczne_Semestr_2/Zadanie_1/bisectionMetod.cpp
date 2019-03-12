@@ -34,7 +34,7 @@ double bisectionB(mathFunction::function func, double a, double b, double &epsil
 	}
 	double x = (a+b)/2;
 	int i = 0;
-	while (i < iteration) {
+	while (i <= iteration) {
 		x = (a + b) / 2;
 		if (func(x)*(func(a)) < 0) {
 			b = x;
