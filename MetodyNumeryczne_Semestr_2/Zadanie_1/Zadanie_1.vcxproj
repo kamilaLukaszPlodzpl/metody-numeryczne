@@ -115,6 +115,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="gnuplot.cpp" />
     <ClCompile Include="main.cpp">
       <FileType>CppCode</FileType>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
@@ -127,9 +128,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="bisectionMetod.hpp" />
+    <ClInclude Include="gnuplot.hpp" />
     <ClInclude Include="mathFunctions.hpp" />
     <ClInclude Include="mathFunctionsList.hpp" />
     <ClInclude Include="newtonMethod.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="example\plot.plt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
