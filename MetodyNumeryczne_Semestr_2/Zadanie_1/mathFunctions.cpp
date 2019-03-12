@@ -67,6 +67,7 @@ namespace mathFunction
 		arr.push_back(createFunctionMeta(mathFunctionList::Polynomial_2, mathFunctionList::derivative_Polynomial_2,"x^2+x-3"));
 		arr.push_back(createFunctionMeta(mathFunctionList::Trygonometric_1, mathFunctionList::derivative_Trygonometric_1, "4sin(2x)"));
 		arr.push_back(createFunctionMeta(mathFunctionList::Exponetial_1, mathFunctionList::derivative_Exponetial_1, "2^x"));
+		arr.push_back(createFunctionMeta(mathFunctionList::Polynomial_3, mathFunctionList::derivative_Polynomial_3, "x^3+2x^2-2x+1"));
 		return arr;
 	}
 }
