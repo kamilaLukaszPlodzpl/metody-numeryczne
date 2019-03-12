@@ -34,7 +34,7 @@ void algorithIteration(mathFunction::functionMeta f, const double &intervalStart
 	double newtonX = newtonB(f.func, f.derivativeFunc, intervalStart, intervalEnd, newtonEpsilon, iteration);
 
 	cout << "Bisection method =" << setprecision(50) << bisectionX << " Acurrancy = " << setprecision(50) << bisectionEpsilon << '\n';
-	cout << "Newton metod =" << scientific << newtonX << "Acurrancy = " << scientific << newtonEpsilon << '\n';
+	cout << "Newton metod =" << scientific << newtonX << "Acurrancy = " << scientific << newtonEpsilon << '\n'; // wyswietlanie poprawic 
 }
 
 int main(int argc, char* argv[]) {

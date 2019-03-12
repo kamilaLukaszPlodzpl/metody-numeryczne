@@ -10,21 +10,18 @@ double newtonA(mathFunction::function func, mathFunction::function derivative, d
 		return NULL; 
 	}
 
-	double firstX;
-	cout << "Starting x =";
-	cin >> firstX;
-
 	double nextX = 0;
+	double currentX = b;
 
-	while (abs(firstX - nextX) >= epsilon) {
+	while (abs(currentX - nextX) >= epsilon) {
 		iteration++;
-		if (abs(func(firstX)) <= epsilon) {
-			return firstX;
+		if (abs(func(currentX)) <= epsilon) {
+			return currentX;
 		}
-		double nextX = firstX - (func(firstX)/derivative(firstX));
-		firstX = nextX;
+		double nextX = currentX - (func(currentX)/derivative(currentX));
+		currentX = nextX;
 	}
-	return firstX;
+	return currentX;
 }
 
 double newtonB(mathFunction::function func, mathFunction::function derivative, double a, double b, double &epsilon, int iteration) {
@@ -34,17 +31,14 @@ double newtonB(mathFunction::function func, mathFunction::function derivative, d
 	}
 	int i = 0;
 
-	double firstX;
-	cout << "Starting x =";
-	cin >> firstX;
-
+	double currentX = b;
 	double nextX = 0;
 
 	while (i <= iteration) {
-		double nextX = firstX - (func(firstX) / derivative(firstX));
-		firstX = nextX;
+		double nextX = currentX - (func(currentX) / derivative(currentX));
+		 currentX = nextX;
 		i++;
 	}
 	// dok³adnoœæ obliczeñ epsilon=
-	return firstX;
+	return currentX;
 }
