@@ -134,7 +134,7 @@
     <ClInclude Include="newtonMethod.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="example\plot.plt" />
+    <None Include="example\example.plt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

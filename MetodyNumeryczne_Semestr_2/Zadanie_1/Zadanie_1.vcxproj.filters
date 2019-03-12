@@ -13,7 +13,7 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Przykłady">
+    <Filter Include="Doc">
       <UniqueIdentifier>{ee959fbb-3c19-41e8-8d1d-45ed7cfa98e1}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -55,8 +55,8 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="example\plot.plt">
-      <Filter>Przykłady</Filter>
+    <None Include="example\example.plt">
+      <Filter>Doc</Filter>
     </None>
   </ItemGroup>
 </Project>
