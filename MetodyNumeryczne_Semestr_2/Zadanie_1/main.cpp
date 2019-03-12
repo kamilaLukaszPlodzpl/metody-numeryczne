@@ -3,6 +3,7 @@
 #include "mathFunctions.hpp"
 #include "bisectionMetod.hpp"
 #include "newtonMethod.hpp"
+#include "gnuplot.hpp"
 
 
 
