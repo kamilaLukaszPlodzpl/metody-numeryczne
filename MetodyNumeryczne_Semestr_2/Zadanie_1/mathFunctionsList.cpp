@@ -36,4 +36,14 @@ namespace mathFunctionList
 	double derivative_Exponetial_1(double x) {
 		return exp(x);
 	}
+
+
+	double Polynomial_3(double x)// x^3+2x^2-2x+1
+	{
+		return (x*x*x) + (2 * x*x) - (2 * x) + 1;
+	}
+	double derivative_Polynomial_3(double x)
+	{
+		return (3 * x*x) + (4 * x) - 2;
+	}
 }

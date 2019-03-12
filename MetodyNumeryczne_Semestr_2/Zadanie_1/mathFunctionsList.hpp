@@ -16,4 +16,7 @@ namespace mathFunctionList
 
 	double Exponetial_1(double x);// 2^x
 	double derivative_Exponetial_1(double x);
+
+	double Polynomial_3(double x);// x^3+2x^2-2x+1
+	double derivative_Polynomial_3(double x);
 }
