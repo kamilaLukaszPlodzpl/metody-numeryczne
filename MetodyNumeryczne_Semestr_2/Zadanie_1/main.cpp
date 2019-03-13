@@ -42,7 +42,6 @@ int main(int argc, char* argv[]) {
 	// Select functions to calculate
 	mathFunction::functionMeta f;
 	mathFunction::selectFunction(f);
-
 	//
 	char algorithm = '0';
 	while (algorithm != 'a' && algorithm != 'b') {
@@ -55,6 +54,9 @@ int main(int argc, char* argv[]) {
 	cin >> intervalStart;
 	cout << "End point for search interval:";
 	cin >> intervalEnd;
+
+
+	gnuplot::generateScript("out.plt", 0.01, f, intervalStart, intervalEnd);
 
 	// Calculate
 	if (algorithm == 'a') {
