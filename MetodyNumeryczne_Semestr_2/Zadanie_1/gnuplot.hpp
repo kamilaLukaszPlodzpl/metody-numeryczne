@@ -14,7 +14,16 @@ namespace gnuplot
 		const double &resolution,
 		mathFunction::functionMeta metaF,
 		const double &a,
-		const double &b
+		const double &b,
+		bool renderToFile = false
+	);
+
+	void displayFunction(
+		const double &resolution,
+		mathFunction::functionMeta metaF,
+		const double &a,
+		const double &b,
+		bool saveToFile = false
 	);
 
 

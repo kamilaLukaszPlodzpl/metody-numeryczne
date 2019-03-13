@@ -56,7 +56,7 @@ int main(int argc, char* argv[]) {
 	cin >> intervalEnd;
 
 
-	gnuplot::generateScript("out.plt", 0.01, f, intervalStart, intervalEnd);
+	gnuplot::displayFunction(0.001, f, intervalStart, intervalEnd,true);
 
 	// Calculate
 	if (algorithm == 'a') {

@@ -3,6 +3,8 @@
 #include <fstream>
 #include <vector>
 #include <climits>
+#include <cstdlib>
+#include <cstdio>
 using namespace std;
 namespace gnuplot
 {
@@ -12,7 +14,8 @@ namespace gnuplot
 		const double &resolution,
 		mathFunction::functionMeta metaF,
 		const double &a,
-		const double &b
+		const double &b,
+		bool renderToFile
 	) {
 
 		vector<point> points;
@@ -32,8 +35,11 @@ namespace gnuplot
 
 		fstream script(fileName, ios::out);
 
-		script << "set terminal pngcairo\n";
-		script << "set output \""<<fileName<<".png\"\n";
+		if (renderToFile)
+		{
+			script << "set terminal pngcairo\n";
+			script << "set output \"" << fileName << ".png\"\n";
+		}
 		//script << "set xlabel \"x\"\n";
 		//script << "set ylabel \"y\"\n";
 		//script << "set title \"\"\n";
@@ -55,6 +61,25 @@ namespace gnuplot
 
 		script << "\n";
 		script.close();
+
+	}
+
+
+	void displayFunction(
+		const double &resolution,
+		mathFunction::functionMeta metaF,
+		const double &a,
+		const double &b,
+		bool saveToFile
+	){
+		if (saveToFile)
+		{
+			string name = metaF.name+".plt";
+			generateScript(name.c_str(), resolution, metaF, a, b,true);
+		}
+		generateScript("temp.plt", resolution, metaF, a, b);
+		system("temp.plt");
+		remove("temp.plt");
 	}
 
 
