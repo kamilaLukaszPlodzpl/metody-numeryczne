@@ -37,14 +37,14 @@ namespace gnuplot
 		script << "set xtics 1\n";
 		script << "set ytics 1\n";
 
-		script << "plot \" - \" with lines title \"title1\", \" - \" with lines title \"title2\"\n";
+		script << "plot \"-\" with lines title \"title1\", \"-\" with lines title \"title2\"\n";
 
 		for (size_t i = 0; i < points.size(); i++)
 		{
-			//script << points[i].x << " " << points[i].y << "\n";
+			script << points[i].x << " " << points[i].y << "\n";
 		}
-
-		script << "1 3\n2 2\n3 1\n\n";
+		//script << "\n";
+		//script << "1 3\n2 2\n3 1\n\n";
 		script << "e\n";
 		script << "1 3\n2 2\n3 1\n\n";
 
