@@ -3,8 +3,6 @@
 #include <fstream>
 #include <vector>
 #include <climits>
-#include <cstdlib>
-#include <cstdio>
 using namespace std;
 namespace gnuplot
 {
@@ -129,46 +127,4 @@ namespace gnuplot
 		script.close();
 
 	}
-
-
-	void displayFunction(
-		const double &resolution,
-		mathFunction::functionMeta metaF,
-		const double &a,
-		const double &b,
-		bool saveToFile
-	){
-		if (saveToFile)
-		{
-			string name = metaF.name+".plt";
-			generateScript(name.c_str(), resolution, metaF, a, b,true);
-		}
-		generateScript("temp.plt", resolution, metaF, a, b,false);
-		system("temp.plt");
-		remove("temp.plt");
-	}
-
-
-	void displayFunction(
-		const double &resolution,
-		mathFunction::functionMeta metaF,
-		const double &a,
-		const double &b,
-		bool saveToFile,
-		double x1,
-		const char *x1L,
-		double x2,
-		const char *x2L
-	) {
-		if (saveToFile)
-		{
-			string name = metaF.name + ".plt";
-			generateScript(name.c_str(), resolution, metaF, a, b, true,x1,x1L,x2,x2L);
-		}
-		generateScript("tempxx.plt", resolution, metaF, a, b,false, x1, x1L, x2, x2L);
-		system("tempxx.plt");
-		remove("tempxx.plt");
-	}
-
-
 }

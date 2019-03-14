@@ -30,26 +30,4 @@ namespace gnuplot
 		double x2,
 		const char *x2L
 	);
-
-	void displayFunction(
-		const double &resolution,
-		mathFunction::functionMeta metaF,
-		const double &a,
-		const double &b,
-		bool saveToFile
-	);
-
-	void displayFunction(
-		const double &resolution,
-		mathFunction::functionMeta metaF,
-		const double &a,
-		const double &b,
-		bool saveToFile,
-		double x1,
-		const char *x1L,
-		double x2,
-		const char *x2L
-	);
-
-
 }
