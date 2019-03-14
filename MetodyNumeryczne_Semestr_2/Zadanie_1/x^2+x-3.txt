@@ -1,0 +1,11 @@
+Function: f(x)=x^2+x-3
+range - ( -2.5, -2 )
+Accurancy
+Bisection: 
+	 x=-2.30273
+	 epsilon=0.001
+	 iteration=8
+Newton: 
+	 x=-2.30303
+	 epsilon=0.001
+	 iteration=3
