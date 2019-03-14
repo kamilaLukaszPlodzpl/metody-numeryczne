@@ -21,6 +21,9 @@ void algorithmAccurancy(mathFunction::functionMeta f,const double &intervalStart
 
 	cout << "Bisection method =" << scientific << bisectionX << "    Iteration = " << bisectionIteration << '\n';
 	cout << "Newton metod =" << scientific << newtonX << "     Iteration = " << newtonIteration << '\n';
+
+	gnuplot::displayFunction(0.001, f, intervalStart, intervalEnd, true, bisectionX, "bisectionX", newtonX, "newtonX");
+
 }
 
 void algorithIteration(mathFunction::functionMeta f, const double &intervalStart, const double &intervalEnd) {
@@ -36,18 +39,26 @@ void algorithIteration(mathFunction::functionMeta f, const double &intervalStart
 
 	cout << "Bisection method =" << setprecision(50) << bisectionX << " Acurrancy = " << setprecision(50) << bisectionEpsilon << '\n';
 	cout << "Newton metod =" << scientific << newtonX << "Acurrancy = " << scientific << newtonEpsilon << '\n'; // wyswietlanie poprawic 
+
+	gnuplot::displayFunction(0.001, f, intervalStart, intervalEnd, true, bisectionX, "bisectionX", newtonX, "newtonX");
+
 }
 
 int main(int argc, char* argv[]) {
 	// Select functions to calculate
 	mathFunction::functionMeta f;
 	mathFunction::selectFunction(f);
+
+	gnuplot::displayFunction(0.01, f, -10, 10, false);
+
 	//
 	char algorithm = '0';
 	while (algorithm != 'a' && algorithm != 'b') {
 		cout << "Select type of algorithm:" << '\n' << "a: accurancy" << '\n' << "b: iteration" << '\n';
 		cin >> algorithm;
 	}
+
+
 
 	double intervalStart, intervalEnd;
 	cout << "Start point for search interval:";
@@ -56,7 +67,6 @@ int main(int argc, char* argv[]) {
 	cin >> intervalEnd;
 
 
-	gnuplot::displayFunction(0.001, f, intervalStart, intervalEnd,true);
 
 	// Calculate
 	if (algorithm == 'a') {
