@@ -45,7 +45,7 @@ double bisectionB(mathFunction::function func, double a, double b, double &epsil
 		i++;
 	}
 	x = (a + b) / 2;
-	epsilon = abs(a - b) / 2;
+	epsilon = abs(func(x));
 	return x;
 }
 

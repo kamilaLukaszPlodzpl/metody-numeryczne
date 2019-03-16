@@ -39,6 +39,6 @@ double newtonB(mathFunction::function func, mathFunction::function derivative, d
 		 currentX = nextX;
 		i++;
 	}
-	// dok³adnoœæ obliczeñ epsilon=
+	epsilon = abs(func(currentX));
 	return currentX;
 }
