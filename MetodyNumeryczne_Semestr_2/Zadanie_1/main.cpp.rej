@@ -1,0 +1,13 @@
+diff a/MetodyNumeryczne_Semestr_2/Zadanie_1/main.cpp b/MetodyNumeryczne_Semestr_2/Zadanie_1/main.cpp	(rejected hunks)
+@@ -61,9 +61,11 @@
+ 	mathFunction::selectFunction(f);
+ 
+ 	// Wy�wietlenie czystego wykresu
++	/*
+ 	gnuplot::generateScript("temp.plt",0.01, f, -10, 10, false);
+ 	system("temp.plt");
+ 	remove("temp.plt");
++	//*/
+ 
+ 	//
+ 	char algorithm = '0';

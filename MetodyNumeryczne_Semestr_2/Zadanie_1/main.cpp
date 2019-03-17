@@ -61,9 +61,9 @@ int main(int argc, char* argv[]) {
 	mathFunction::selectFunction(f);
 
 	// Wyœwietlenie czystego wykresu
-	gnuplot::generateScript("temp.plt",0.01, f, -10, 10, false);
-	system("temp.plt");
-	remove("temp.plt");
+	//gnuplot::generateScript("temp.plt",0.01, f, -10, 10, false);
+	//system("temp.plt");
+	//remove("temp.plt");
 
 	//
 	char algorithm = '0';

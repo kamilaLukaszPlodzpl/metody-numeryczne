@@ -30,8 +30,8 @@ namespace mathFunctionList
 		return 8 * cos(2 * x);
 	}
 
-	double Exponetial_1(double x) {// e^x
-		return exp(x);
+	double Exponetial_1(double x) {// e^x-1
+		return exp(x)-1;
 	}
 	double derivative_Exponetial_1(double x) {
 		return exp(x);
