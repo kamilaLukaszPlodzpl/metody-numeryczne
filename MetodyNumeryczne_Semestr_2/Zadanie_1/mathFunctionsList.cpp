@@ -46,4 +46,32 @@ namespace mathFunctionList
 	{
 		return (3 * x*x) + (4 * x) - 2;
 	}
+
+
+	double aaa(double x)// sin(x)-3^x
+	{
+		return sin(x) - pow(3,x);
+	}
+	double derivative_aaa(double x)
+	{
+		return cos(x) - exp(x*log(3));
+	}
+
+	double bbb(double x)//cos(log(x))*(sin(x))^2
+	{
+		return cos(log(x))*sin(x)*sin(x);
+	}
+	double derivative_bbb(double x)
+	{
+		return sin(x)*(2 * cos(x)*cos(log(x)) - ((sin(x)*sin(log(x))) / x));
+	}
+	double ccc(double x)// 2cos(x)
+	{
+		return 2 * cos(x);
+	}
+	double derivative_ccc(double x)
+	{
+		return -2 * sin(x);
+	}
+
 }

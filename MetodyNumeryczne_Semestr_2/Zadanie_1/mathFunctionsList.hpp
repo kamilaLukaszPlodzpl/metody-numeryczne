@@ -19,4 +19,13 @@ namespace mathFunctionList
 
 	double Polynomial_3(double x);// x^3+2x^2-2x+1
 	double derivative_Polynomial_3(double x);
+
+	double aaa(double x); // sin(x) - 3x
+	double derivative_aaa(double x);
+
+	double bbb(double x);
+	double derivative_bbb(double x);
+
+	double ccc(double x);
+	double derivative_ccc(double x);
 }

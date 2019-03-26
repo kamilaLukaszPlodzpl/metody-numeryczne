@@ -68,6 +68,9 @@ namespace mathFunction
 		arr.push_back(createFunctionMeta(mathFunctionList::Trygonometric_1, mathFunctionList::derivative_Trygonometric_1, "4sin(2x)"));
 		arr.push_back(createFunctionMeta(mathFunctionList::Exponetial_1, mathFunctionList::derivative_Exponetial_1, "e^x-1"));
 		arr.push_back(createFunctionMeta(mathFunctionList::Polynomial_3, mathFunctionList::derivative_Polynomial_3, "x^3+2x^2-2x+1"));
+		arr.push_back(createFunctionMeta(mathFunctionList::aaa, mathFunctionList::derivative_aaa, "sin(x)-3^x"));
+		arr.push_back(createFunctionMeta(mathFunctionList::bbb, mathFunctionList::derivative_bbb, "cos(log(x))*(sin(x))^2"));
+		arr.push_back(createFunctionMeta(mathFunctionList::ccc, mathFunctionList::derivative_ccc, "2cos(x)"));
 		return arr;
 	}
 }
