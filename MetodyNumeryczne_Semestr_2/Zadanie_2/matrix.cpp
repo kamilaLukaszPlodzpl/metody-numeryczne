@@ -33,7 +33,7 @@ Matrix *readMatrix(istream stream) {
 	Matrix*a = newMatrix(row, column);
 	for (int i = 0; i < a->rows; i++) {
 		for (int j = 0; j < a->columns; j++) {
-			cin >> a->elements[i][j];
+			stream >> a->elements[i][j];
 		}
 	}
 	return a;
