@@ -1,4 +1,5 @@
 #pragma once
+#include <fstream>
 
 struct Matrix {
 	int rows;
@@ -8,6 +9,6 @@ struct Matrix {
 
 Matrix *newMatrix(int rows, int columns);
 void delMatrix(Matrix *a);
-Matrix *readMatrix(istream stream);
-void printMatrix(Matrix const *a, ostream stream);
+Matrix *readMatrix(std::istream stream);
+void printMatrix(Matrix const *a, std::ostream stream);
 
