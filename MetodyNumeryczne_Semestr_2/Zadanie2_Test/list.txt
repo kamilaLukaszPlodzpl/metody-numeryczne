@@ -1,0 +1,5 @@
+../Zadanie_2/matrix/
+a.txt
+b.txt
+c.txt
+d.txt

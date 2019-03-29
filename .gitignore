@@ -6,8 +6,4 @@ MetodyNumeryczne_Semestr_2/*/Release/
 MetodyNumeryczne_Semestr_2/*/x64/Debug/*
 MetodyNumeryczne_Semestr_2/*/x64/Release/*
 *.png
-MetodyNumeryczne_Semestr_2/Zadanie_1/out.plt
-MetodyNumeryczne_Semestr_2/Zadanie_1/*.plt
-MetodyNumeryczne_Semestr_2/Zadanie_1/x^2+x-3_accurancy.txt
-*accuracy.txt
-*.txt
+*.plt

@@ -13,41 +13,29 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="matrix">
-      <UniqueIdentifier>{fdb0b6cb-e977-49ed-b5fd-d5368e9b9565}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="matrix.cpp">
-      <Filter>Pliki źródłowe</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
-    <ClCompile Include="methodGauss-Seidel.cpp">
+    <ClCompile Include="..\Zadanie_2\matrix.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Zadanie_2\methodGauss-Seidel.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="matrix.hpp">
-      <Filter>Pliki nagłówkowe</Filter>
-    </ClInclude>
-    <ClInclude Include="methodGauss-Seidel.hpp">
-      <Filter>Pliki nagłówkowe</Filter>
-    </ClInclude>
+    <Text Include="list.txt">
+      <Filter>Pliki zasobów</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="matrix\a.txt">
-      <Filter>matrix</Filter>
-    </Text>
-    <Text Include="matrix\b.txt">
-      <Filter>matrix</Filter>
-    </Text>
-    <Text Include="matrix\c.txt">
-      <Filter>matrix</Filter>
-    </Text>
-    <Text Include="matrix\d.txt">
-      <Filter>matrix</Filter>
-    </Text>
+    <ClInclude Include="..\Zadanie_2\matrix.hpp">
+      <Filter>Pliki nagłówkowe</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Zadanie_2\methodGauss-Seidel.hpp">
+      <Filter>Pliki nagłówkowe</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

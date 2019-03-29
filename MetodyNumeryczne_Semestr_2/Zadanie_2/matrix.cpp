@@ -1,14 +1,15 @@
+#pragma once
+#include "matrix.hpp"
 #include <iostream>
 #include <fstream>
 #include <iomanip>
-#include "matrix.hpp"
 
 using namespace std;
 
 Matrix *newMatrix(int rows, int columns) {
 	Matrix *a = new Matrix;
 	a->rows = rows;
-	a->columns = columns;
+	a->columns = columns;	
 	a->elements = new double *[rows];
 	for (int i = 0; i < rows; i++) {
 		a->elements[i] = new double[columns];
@@ -26,11 +27,8 @@ void delMatrix(Matrix *a) {
 	a = nullptr;
 }
 
-Matrix *readMatrix(istream stream) {
-	int row;
-	int column;
-	stream >> row >> column;
-	Matrix*a = newMatrix(row, column);
+Matrix *readMatrix(Matrix *&a,istream &stream) {
+
 	for (int i = 0; i < a->rows; i++) {
 		for (int j = 0; j < a->columns; j++) {
 			stream >> a->elements[i][j];
@@ -39,7 +37,7 @@ Matrix *readMatrix(istream stream) {
 	return a;
 }
 
-void printMatrix(Matrix const *a, ostream stream) {
+void printMatrix(Matrix const *a, ostream &stream) {
 	if (a == nullptr) {
 		stream << "[ Null matrix ] \n";
 		return;
@@ -51,4 +49,8 @@ void printMatrix(Matrix const *a, ostream stream) {
 		}
 		stream << setw(2) << ']' << '\n';
 	}
+}
+
+void printMatrix(Matrix const *a) {
+	printMatrix(a, cout);
 }
