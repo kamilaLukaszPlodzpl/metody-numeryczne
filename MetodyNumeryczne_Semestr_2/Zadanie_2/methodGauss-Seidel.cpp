@@ -3,6 +3,7 @@
 #include "methodGauss-Seidel.hpp"
 #include <fstream>
 #include <iostream>
+#include <cmath>
 
 using namespace std;
 
@@ -24,15 +25,15 @@ void readDataFromFile(const char *fileName, Matrix *&A, Matrix *&B)
 
 }
 
-bool converganceCheck( Matrix *A ) {
-	double sum = 0;
+bool converganceCheck(const Matrix *A ) {
 	for (int i = 0; i < A->rows; i++) {
-		for (int j = 0; j < A->columns; i++) {
-			if (i = !j) {
-				sum = sum + A->elements[i][j];
+		double sum = 0;
+		for (int j = 0; j < A->columns; j++) {
+			if (i != j) {
+				sum += abs(A->elements[i][j]);
 			}
 		}
-		if (A->elements[i][i] < sum) {
+		if (abs(A->elements[i][i]) <= sum) {
 			return false;
 		}
 	}
@@ -40,7 +41,7 @@ bool converganceCheck( Matrix *A ) {
 }
 
 
-void formulaFromWiki(Matrix *A, Matrix *B, Matrix *X)
+void methodGaussSeidel(Matrix *A, Matrix *B, Matrix *X)
 {
 	int n = A->rows;
 	std::vector<double> x(n);

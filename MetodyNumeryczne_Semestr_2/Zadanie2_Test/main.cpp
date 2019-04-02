@@ -42,11 +42,19 @@ int main(int argc, char* argv[])
 		printMatrix(A);
 		cout << "macierz B: \n";
 		printMatrix(B);
+
 		cout << "----------------------------------------\n";
-		for(int i = 0; i < 10; i++)
-			formulaFromWiki(A, B, X);
-		cout << "obliczona macierz X:\n";
-		printMatrix(X);
+		if (!converganceCheck(A))
+		{
+			cout << "macierz A nie jest zbie¿na\n";
+		}
+		else
+		{
+			for (int i = 0; i < 10; i++)
+				formulaFromWiki(A, B, X);
+			cout << "obliczona macierz X:\n";
+			printMatrix(X);
+		}
 	}
 
 	cin.get();

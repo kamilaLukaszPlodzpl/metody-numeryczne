@@ -5,5 +5,5 @@
 
 void readDataFromFile(const char *fileName, Matrix *&A, Matrix *&B);
 
-bool converganceCheck(Matrix *A);
-void formulaFromWiki(Matrix *A, Matrix *B, Matrix *X);
+bool converganceCheck(const Matrix *A);
+void methodGaussSeidel(Matrix *A, Matrix *B, Matrix *X);
