@@ -17,13 +17,15 @@ Matrix *newMatrix(int rows, int columns) {
 	return a;
 }
 
-void delMatrix(Matrix *a) {
+void delMatrix(Matrix *&a) {
 	if (a == nullptr)
 		return;
+
 	for (int i = 0; i < a->rows; i++) {
 		delete[] a->elements[i];
 	}
 	delete[] a->elements;
+	delete a;
 	a = nullptr;
 }
 
@@ -53,4 +55,19 @@ void printMatrix(Matrix const *a, ostream &stream) {
 
 void printMatrix(Matrix const *a) {
 	printMatrix(a, cout);
+}
+
+
+void copyMatrix(const Matrix *src, Matrix *&dest)
+{
+	delMatrix(dest);
+
+	dest = newMatrix(src->rows, src->columns);
+	for (size_t i = 0; i < src->rows; i++)
+	{
+		for (size_t j = 0; j < src->columns; j++)
+		{
+			dest->elements[i][j] = src->elements[i][j];
+		}
+	}
 }

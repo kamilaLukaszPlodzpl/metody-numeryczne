@@ -2,24 +2,25 @@
 #include <string>
 #include "matrix.hpp"
 #include "methodGauss-Seidel.hpp"
+#define AUTO
 using namespace std;
 
 
 int main(int argc, char* argv[])
 {
 	cout << "Podaj nazwe pliku\n";
-	string fileName;
-	cin >> fileName;
+	string fileName = ".\\matrix\\d.txt";
+	//cin >> fileName;
 
 	cout << "########################################\n";
 
-	char condition = 'v';
+	char condition = 'd';
 	do
 	{
 		cout << "Wybierz warunek stopu:\n"
 			<< "\t i. iteracje\n"
 			<< "\t d. dokladnosc\n";
-		cin >> condition;
+		//cin >> condition;
 	} while (condition != 'i' && condition !='d');
 
 	//Wczytanie macierzy A B
@@ -50,16 +51,32 @@ int main(int argc, char* argv[])
 			cin >> iteration;
 			for (int i = 0; i < iteration; i++)
 				methodGaussSeidel(A, B, X);
+
+			cout << "obliczona macierz X:\n";
+			printMatrix(X);
 		}
 		else
 		{
-			throw new exception("Not implemented");
-			return 1;
+			double epsilon = 0.01;
+			cout << "Podaj dokladnosc\n";
+			//cin >> epsilon;
+			int g = 0;
+			while (g < 10)
+			{
+				g++;
+				Matrix *cpyX;
+				copyMatrix(X, cpyX);
+				methodGaussSeidel(A, B, X);
+				cout << "*********\n";
+				for (size_t i = 0; i < cpyX->rows; i++)
+				{
+					cout << cpyX->elements[i][0] - X->elements[i][0] << "\n";
+				}
+			}
 		}
-		cout << "obliczona macierz X:\n";
-		printMatrix(X);
 	}
 
+	cout << endl;
 	cin.get();
 	cin.get();
 	return 0;
