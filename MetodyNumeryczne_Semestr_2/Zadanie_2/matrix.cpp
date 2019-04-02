@@ -60,9 +60,6 @@ void printMatrix(Matrix const *a) {
 
 void copyMatrix(const Matrix *src, Matrix *&dest)
 {
-	delMatrix(dest);
-
-	dest = newMatrix(src->rows, src->columns);
 	for (size_t i = 0; i < src->rows; i++)
 	{
 		for (size_t j = 0; j < src->columns; j++)
