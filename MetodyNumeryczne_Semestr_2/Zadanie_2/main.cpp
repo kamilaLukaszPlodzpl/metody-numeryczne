@@ -91,5 +91,7 @@ int main(int argc, char* argv[])
 	cout << endl;
 	cin.get();
 	cin.get();
+	cin.get();
+	cin.get();
 	return 0;
 }
