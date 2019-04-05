@@ -30,7 +30,7 @@ int main(int argc, char* argv[])
 		//Wczytanie macierzy A B
 		Matrix *A, *B;
 		readDataFromFile(fileName.c_str(), A, B);
-		
+		/*
 		//Generowanie macierzy X
 		Matrix *X = newMatrix(B->rows, 1);
 		for (int i = 0; i < B->rows; i++)
@@ -43,6 +43,7 @@ int main(int argc, char* argv[])
 		cout << "macierz B: \n";
 		printMatrix(B);
 
+		/*
 		cout << "----------------------------------------\n";
 		if (!converganceCheck(A))
 		{
@@ -55,6 +56,7 @@ int main(int argc, char* argv[])
 			cout << "obliczona macierz X:\n";
 			printMatrix(X);
 		}
+		//*/
 	}
 
 	cin.get();

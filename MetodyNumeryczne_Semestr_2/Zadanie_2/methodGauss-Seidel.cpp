@@ -4,25 +4,30 @@
 #include <fstream>
 #include <iostream>
 #include <cmath>
+#include <vector>
+#include <string>
 
 using namespace std;
 
 
 void readDataFromFile(const char *fileName, Matrix *&A, Matrix *&B)
 {
-	fstream file(fileName);
-	if (!file.good())
+	fstream stream(fileName);
+	if (!stream.good())
 	{
-		//std::cout << "Problem odczytu pliku! \n";
-		throw new exception("Problem odczytu pliku.");
+		std::cout << "Problem odczytu pliku!\n";
+		throw new exception("Problem odczytu pliku!");
 	}
-	int row, col;
-	file >> row >> col;
-	A = newMatrix(row, col);
-	B = newMatrix(row, 1);
-	readMatrix(A, file);
-	readMatrix(B, file);
+	while (!stream.eof())
+	{
+		std::string x;
+		do
+		{
+			stream >> x;
+			std::cin << x << " ";
 
+		} while (x != "|");
+	}
 }
 
 bool converganceCheck(const Matrix *A ) {
