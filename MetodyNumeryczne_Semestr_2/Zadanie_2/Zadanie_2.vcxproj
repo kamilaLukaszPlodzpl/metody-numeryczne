@@ -124,10 +124,18 @@
     <ClInclude Include="methodGauss-Seidel.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="matrix\1.txt" />
+    <Text Include="matrix\2.txt" />
+    <Text Include="matrix\3.txt" />
+    <Text Include="matrix\4.txt" />
+    <Text Include="matrix\5.txt" />
     <Text Include="matrix\a.txt" />
     <Text Include="matrix\b.txt" />
     <Text Include="matrix\c.txt" />
     <Text Include="matrix\d.txt" />
+    <Text Include="matrix\z1.txt" />
+    <Text Include="matrix\z2.txt" />
+    <Text Include="matrix\z3.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

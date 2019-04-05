@@ -37,7 +37,7 @@ int main(int argc, char* argv[])
 		{
 			X->elements[i][0] = 0;
 		}
-
+		cout << "file: " << fileName << "\n";
 		cout << "macierz A: \n";
 		printMatrix(A);
 		cout << "macierz B: \n";

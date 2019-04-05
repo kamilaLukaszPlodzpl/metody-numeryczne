@@ -49,5 +49,29 @@
     <Text Include="matrix\d.txt">
       <Filter>matrix</Filter>
     </Text>
+    <Text Include="matrix\1.txt">
+      <Filter>matrix</Filter>
+    </Text>
+    <Text Include="matrix\2.txt">
+      <Filter>matrix</Filter>
+    </Text>
+    <Text Include="matrix\3.txt">
+      <Filter>matrix</Filter>
+    </Text>
+    <Text Include="matrix\4.txt">
+      <Filter>matrix</Filter>
+    </Text>
+    <Text Include="matrix\5.txt">
+      <Filter>matrix</Filter>
+    </Text>
+    <Text Include="matrix\z1.txt">
+      <Filter>matrix</Filter>
+    </Text>
+    <Text Include="matrix\z2.txt">
+      <Filter>matrix</Filter>
+    </Text>
+    <Text Include="matrix\z3.txt">
+      <Filter>matrix</Filter>
+    </Text>
   </ItemGroup>
 </Project>
