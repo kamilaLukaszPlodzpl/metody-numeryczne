@@ -73,5 +73,23 @@
     <Text Include="matrix\z3.txt">
       <Filter>matrix</Filter>
     </Text>
+    <Text Include="matrix\e.txt">
+      <Filter>matrix</Filter>
+    </Text>
+    <Text Include="matrix\f.txt">
+      <Filter>matrix</Filter>
+    </Text>
+    <Text Include="matrix\g.txt">
+      <Filter>matrix</Filter>
+    </Text>
+    <Text Include="matrix\h.txt">
+      <Filter>matrix</Filter>
+    </Text>
+    <Text Include="matrix\i.txt">
+      <Filter>matrix</Filter>
+    </Text>
+    <Text Include="matrix\j.txt">
+      <Filter>matrix</Filter>
+    </Text>
   </ItemGroup>
 </Project>

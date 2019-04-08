@@ -11,3 +11,9 @@ d.txt
 z1.txt
 z2.txt
 z3.txt
+e.txt
+f.txt
+g.txt
+h.txt
+i.txt
+j.txt

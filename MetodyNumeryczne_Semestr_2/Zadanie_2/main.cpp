@@ -14,6 +14,18 @@ int main(int argc, char* argv[])
 
 	cout << "########################################\n";
 
+	//Wczytanie macierzy A B
+	Matrix *A, *B;
+	readDataFromFile(fileName.c_str(), A, B);
+
+	if (!converganceCheck(A))
+	{
+		cout << "macierz A nie jest zbie¿na\n";
+		cin.get();
+		cin.get();
+		return 0;
+	}
+
 	char condition = 'd';
 	do
 	{
@@ -23,71 +35,60 @@ int main(int argc, char* argv[])
 		cin >> condition;
 	} while (condition != 'i' && condition !='d');
 
-	//Wczytanie macierzy A B
-	Matrix *A, *B;
-	readDataFromFile(fileName.c_str(), A, B);
-
 	//Generowanie macierzy X
 	Matrix *X = newMatrix(B->rows, 1);
 	for (int i = 0; i < B->rows; i++)
 	{
 		X->elements[i][0] = 0;
 	}
+
 	cout << "macierz A: \n";
 	printMatrix(A);
 	cout << "macierz B: \n";
 	printMatrix(B);
 	cout << "----------------------------------------\n";
-	if (!converganceCheck(A))
+	if (condition == 'i')
 	{
-		cout << "macierz A nie jest zbie¿na\n";
+		int iteration = 10;
+
+		cout << "Podaj ilosc iteracji\n";
+		cin >> iteration;
+		for (int i = 0; i < iteration; i++)
+		{
+			methodGaussSeidel(A, B, X);
+		}
+		cout << "obliczona macierz X:\n";
+		printMatrix(X);
 	}
 	else
 	{
-		if (condition == 'i')
+		double epsilon = 0.01;
+
+		Matrix *cpyX = newMatrix(X->rows, X->columns);
+
+		cout << "Podaj dokladnosc\n";
+		cin >> epsilon;
+		int iteration = 0;
+		bool loop_continue = true;
+		while (loop_continue)
 		{
-			int iteration = 10;
+			iteration++;
+			copyMatrix(X, cpyX);
 
-			cout << "Podaj ilosc iteracji\n";
-			cin >> iteration;
-			for (int i = 0; i < iteration; i++)
+			methodGaussSeidel(A, B, X);
+			for (size_t i = 0; i < cpyX->rows; i++)
 			{
-				methodGaussSeidel(A, B, X);
-			}
-			cout << "obliczona macierz X:\n";
-			printMatrix(X);
-		}
-		else
-		{
-			double epsilon = 0.01;
-
-			Matrix *cpyX = newMatrix(X->rows, X->columns);
-
-			cout << "Podaj dokladnosc\n";
-			cin >> epsilon;
-			int iteration = 0;
-			bool loop_continue = true;
-			while (loop_continue)
-			{
-				iteration++;
-				copyMatrix(X, cpyX);
-
-				methodGaussSeidel(A, B, X);
-				for (size_t i = 0; i < cpyX->rows; i++)
+				double x = abs(cpyX->elements[i][0] - X->elements[i][0]);
+				if (x < +epsilon)
 				{
-					double x = abs(cpyX->elements[i][0] - X->elements[i][0]);
-					if (x <+ epsilon)
-					{
-						loop_continue = false;
-					}
+					loop_continue = false;
 				}
 			}
-			cout << "iteracje: " << iteration << "\n";
-			cout << "obliczona macierz X:\n";
-			printMatrix(X);
 		}
+		cout << "iteracje: " << iteration << "\n";
+		cout << "obliczona macierz X:\n";
+		printMatrix(X);
 	}
-
 	cout << endl;
 	cin.get();
 	cin.get();

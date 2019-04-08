@@ -20,7 +20,7 @@ void readDataFromFile(const char *fileName, Matrix *&A, Matrix *&B)
 		throw new exception("Problem odczytu pliku!");
 	}
 	stringstream firstLine("");
-	int n = 0;//Wielkosc macierzy
+	int n = 0; //Wielkosc macierzy
 	//Wczytanie 1 linii i obliczenie n
 	{
 		string line;
@@ -44,10 +44,12 @@ void readDataFromFile(const char *fileName, Matrix *&A, Matrix *&B)
 	A = newMatrix(n, n);
 	B = newMatrix(n, 1);
 	//Przepisanie pierwszej lini do macierzy
-	for (int i = 0; i < n; i++)
-		firstLine >> A->elements[i][0];
+	for (int j = 0; j < n; j++) {
+		firstLine >> A->elements[0][j];
+	
+	}
+	
 	firstLine >> B->elements[0][0];
-	//
 
 	for (int iX = 1; iX < n; iX++)
 	{
@@ -55,15 +57,17 @@ void readDataFromFile(const char *fileName, Matrix *&A, Matrix *&B)
 		getline(stream, line);
 		stringstream lineStream(line);
 		double value;
+
 		for (int iY = 0; iY < n; iY++)
 		{
 			lineStream >> value;
 			A->elements[iX][iY] = value;
+		
 		}
 		//Wczytanie wyrazu wolnego z pominiêciem znaku '|'
 		string x;
 		lineStream >> x >> value;
-		B->elements[iX][0];
+		B->elements[iX][0] = value;
 	}
 }
 

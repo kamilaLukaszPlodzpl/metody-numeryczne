@@ -133,6 +133,12 @@
     <Text Include="matrix\b.txt" />
     <Text Include="matrix\c.txt" />
     <Text Include="matrix\d.txt" />
+    <Text Include="matrix\e.txt" />
+    <Text Include="matrix\f.txt" />
+    <Text Include="matrix\g.txt" />
+    <Text Include="matrix\h.txt" />
+    <Text Include="matrix\i.txt" />
+    <Text Include="matrix\j.txt" />
     <Text Include="matrix\z1.txt" />
     <Text Include="matrix\z2.txt" />
     <Text Include="matrix\z3.txt" />
