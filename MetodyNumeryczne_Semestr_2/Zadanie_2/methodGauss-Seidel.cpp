@@ -56,6 +56,48 @@ void readDataFromFile(const char *fileName, Matrix *&A, Matrix *&B)
 		string line;
 		getline(stream, line);
 		stringstream lineStream(line);
+		int lStart = 0, lEnd = line.size()-1;
+		for (lStart = 0; lStart < line.size(); lStart++)
+		{
+			if (line[lStart] != ' ' && line[lStart] != '\t' && line[lStart] != '\n')
+			{
+				break;
+			}
+		}
+		for (lEnd = line.size()-1; lEnd >= 0; lEnd--)
+		{
+			if (line[lEnd] != ' ' && line[lEnd] != '\t' && line[lEnd] != '\n')
+			{
+				break;
+			}
+		}
+		string lineCpy = line.substr(lStart, lEnd-lStart+1);
+		int spaceCount = 0;
+		bool waitForSpace = true;
+		for (int iC = 0; iC < lineCpy.size(); iC++)
+		{
+			if (lineCpy[iC] != ' ' && lineCpy[iC] != '\t' && lineCpy[iC] != '\n')//Literki
+			{
+				waitForSpace = true;
+			}
+			else//Spacje
+			{
+				if (waitForSpace)
+				{
+					spaceCount++;
+					waitForSpace = false;
+				}
+			}
+		}
+		if (n + 1 != spaceCount)
+		{
+			cout << "Nieprawidlowe dane wejsciowe\n";
+			cin.get();
+			cin.get();
+			exit(0);
+		}
+
+
 		double value;
 
 		for (int iY = 0; iY < n; iY++)

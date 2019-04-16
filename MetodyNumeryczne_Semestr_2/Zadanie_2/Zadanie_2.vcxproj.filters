@@ -91,5 +91,11 @@
     <Text Include="matrix\j.txt">
       <Filter>matrix</Filter>
     </Text>
+    <Text Include="matrix\bad_d.txt">
+      <Filter>matrix</Filter>
+    </Text>
+    <Text Include="matrix\bad_d1.txt">
+      <Filter>matrix</Filter>
+    </Text>
   </ItemGroup>
 </Project>

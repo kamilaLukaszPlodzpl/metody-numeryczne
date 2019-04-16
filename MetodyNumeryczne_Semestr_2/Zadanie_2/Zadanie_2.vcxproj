@@ -131,6 +131,8 @@
     <Text Include="matrix\5.txt" />
     <Text Include="matrix\a.txt" />
     <Text Include="matrix\b.txt" />
+    <Text Include="matrix\bad_d.txt" />
+    <Text Include="matrix\bad_d1.txt" />
     <Text Include="matrix\c.txt" />
     <Text Include="matrix\d.txt" />
     <Text Include="matrix\e.txt" />
