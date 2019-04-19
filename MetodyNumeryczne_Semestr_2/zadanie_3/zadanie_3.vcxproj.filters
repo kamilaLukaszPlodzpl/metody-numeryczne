@@ -27,7 +27,7 @@
     <ClCompile Include="mathFunctionsList.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
-    <ClCompile Include="functionPoints.cpp">
+    <ClCompile Include="interpolation.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
   </ItemGroup>
@@ -41,7 +41,7 @@
     <ClInclude Include="mathFunctionsList.hpp">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
-    <ClInclude Include="functionPoints.hpp">
+    <ClInclude Include="interpolation.hpp">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
   </ItemGroup>

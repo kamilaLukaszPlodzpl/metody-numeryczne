@@ -115,7 +115,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="functionPoints.cpp" />
+    <ClCompile Include="interpolation.cpp" />
     <ClCompile Include="gnuplot.cpp" />
     <ClCompile Include="main.cpp">
       <FileType>CppClass</FileType>
@@ -126,7 +126,7 @@
     <ClCompile Include="mathFunctionsList.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="functionPoints.hpp" />
+    <ClInclude Include="interpolation.hpp" />
     <ClInclude Include="gnuplot.hpp" />
     <ClInclude Include="mathFunctions.hpp" />
     <ClInclude Include="mathFunctionsList.hpp" />
