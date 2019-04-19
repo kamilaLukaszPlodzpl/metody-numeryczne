@@ -9,10 +9,8 @@ using namespace std;
 int main(int argc, char* argv[])
 {
 	cout << "Podaj nazwe pliku\n";
-	string fileName = ".\\matrix\\d.txt";
+	string fileName = ".\\matrix\\bad_d1.txt";
 	cin >> fileName;
-
-	cout << "########################################\n";
 
 	//Wczytanie macierzy A B
 	Matrix *A, *B;
