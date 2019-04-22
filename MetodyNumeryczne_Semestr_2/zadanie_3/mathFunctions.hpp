@@ -10,13 +10,12 @@ namespace mathFunction
 
 	struct functionMeta {
 		function func;
-		function derivativeFunc;
 		std::string name;
 	};
 
 	typedef std::vector<functionMeta> functionMetaArr;
 
-	functionMeta createFunctionMeta(function func,function derivative, std::string name);
+	functionMeta createFunctionMeta(function func, std::string name);
 
 	//void selectFunction(functionMeta &f, functionMeta &g);
 

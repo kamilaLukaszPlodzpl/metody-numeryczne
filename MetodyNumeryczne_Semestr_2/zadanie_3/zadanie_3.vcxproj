@@ -115,6 +115,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="horner.cpp" />
     <ClCompile Include="interpolation.cpp" />
     <ClCompile Include="gnuplot.cpp" />
     <ClCompile Include="main.cpp">
@@ -126,6 +127,7 @@
     <ClCompile Include="mathFunctionsList.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="horner.hpp" />
     <ClInclude Include="interpolation.hpp" />
     <ClInclude Include="gnuplot.hpp" />
     <ClInclude Include="mathFunctions.hpp" />

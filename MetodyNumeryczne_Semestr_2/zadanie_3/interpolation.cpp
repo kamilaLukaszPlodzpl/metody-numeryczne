@@ -17,19 +17,21 @@ void chebyshevNodes( mathFunction::function function, vector <Point> &points, in
 		point.x = cos(((2 * i - 1) / (double)(2 * nodes)) * M_PI);
 		point.y = function(point.x);
 		points.push_back(point);
+		cout << "weze³ x" << point.x << " Wartosc y:" << point.y << '\n';
 	}
 }
 
-double interpolation( const vector <Point> &points, double searchX, int nodes ) {
-	double value = 0;
-	for (int i = 0; i < nodes; i++) {
-		double produce = 1;
-		for (int j = 0; j < nodes; j++) {
+void interpolation( const vector <Point> &points, double searchX, double &value ) {
+	double produce;
+	for (int i = 0; i < points.size(); i++) {
+		produce = 1.0;
+		for (int j = 0; j < points.size(); j++) {
 			if (j != i) {
-				produce *= ((searchX - points[i].x) / (points[i].x - points[j].x));
+				produce *= ( (searchX - points[j].x) / (points[i].x - points[j].x) );
+				cout << "Wspolczynnik l:" << produce << '\n';
 			}
 		}
 		value += points[i].y * produce;
+		cout << "Warstosc interpolowna:" << value << '\n';
 	}
-	return value;
 }

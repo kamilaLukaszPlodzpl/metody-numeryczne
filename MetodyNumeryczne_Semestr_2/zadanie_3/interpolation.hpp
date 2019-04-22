@@ -11,4 +11,4 @@ struct Point {
 };
 
 void chebyshevNodes(mathFunction::function function, vector <Point> &points, int nodes);
-double interpolation(const vector <Point> &points, double searchX, int nodes);
+void interpolation(const vector <Point> &points, double searchX, double &value);

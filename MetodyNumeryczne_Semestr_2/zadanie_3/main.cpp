@@ -16,15 +16,16 @@ int main(int argc, char* argv[])
 	int nodes;
 	vector <Point> points;
 
-	cout << "Wska¿ liczbê wêz³ów interpolacji:\n";
+	cout << "Wskaz liczbe wezlow inerpolacji:\n";
 	cin >> nodes;
 
 	chebyshevNodes(f.func, points, nodes);
 
-	cout << "Argument x dla, którego wartoœæ ma zostaæ poszukana: \n";
+	cout << "Argument x dla, ktorego wartosc ma zostac poszukana: \n";
 	cin >> searchedX;
 
-	double value = interpolation(points, searchedX, nodes);
+	double value =0;
+	interpolation(points, searchedX, value);
 
 	cout << "Interpolowana wartoœæ funkcji to:" << value << '\n';
 
