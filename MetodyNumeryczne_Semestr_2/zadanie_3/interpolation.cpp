@@ -9,19 +9,19 @@
 
 using namespace std;
 
-void chebyshevNodes( mathFunction::function function, vector <Point> &points, int nodes ) { //generacja wêz³ów
+void chebyshevNodes( mathFunction::function function, vector <gnuplot::point> &points, int nodes ) { //generacja wêz³ów
 	points.clear();
 
 	for(int i =0; i < nodes; i++){
-		Point point;
+		gnuplot::point point;
 		point.x = cos(((2 * i - 1) / (double)(2 * nodes)) * M_PI);
 		point.y = function(point.x);
 		points.push_back(point);
-		cout << "weze³ x" << point.x << " Wartosc y:" << point.y << '\n';
+		//cout << "weze³ x" << point.x << " Wartosc y:" << point.y << '\n';
 	}
 }
 
-void interpolation( const vector <Point> &points, double searchX, double &value ) {
+void interpolation( const vector <gnuplot::point> &points, double searchX, double &value ) {
 	double produce;
 	for (int i = 0; i < points.size(); i++) {
 		produce = 1.0;

@@ -3,10 +3,144 @@
 #include <fstream>
 #include <vector>
 #include <climits>
+#include <iostream>
+#include <algorithm>
 using namespace std;
+
 namespace gnuplot
 {
+	dataPlot *initializeDataPlot(string label, bool asLine)
+	{
+		gnuplot::dataPlot* d = new dataPlot;
+		d->asLine = asLine;
+		d->label = label;
+		return d;
+	}
+	script *initializeScript()
+	{
+		script *s = new script;
+		s->minX = -1;
+		s->maxX = 1;
+		s->minY = -1;
+		s->maxY = 1;
+		s->xTic = 1;
+		s->yTic = 1;
+		s->mxTic = 5;
+		s->myTic = 5;
+		return s;
+	}
 
+	void plot(script *script, const vector<point> &points, string label, bool asLine)
+	{
+		dataPlot *d = initializeDataPlot(label, asLine);
+		for (size_t i = 0; i < points.size(); i++)
+		{
+			d->points.push_back(points[i]);
+			if (points[i].x > script->maxX)
+				script->maxX = points[i].x;
+			else if (points[i].x < script->minX)
+				script->minX = points[i].x;
+			if (points[i].y > script->maxY)
+				script->maxY = points[i].y;
+			else if (points[i].y < script->minY)
+				script->minY = points[i].y;
+		}
+		script->dataPlots.push_back(d);
+	}
+
+	void plot(script *script, const mathFunction::functionMeta &func,double a, double b, double resolution)
+	{
+		if (b < a) {
+			swap(a, b);
+		}
+		dataPlot * d = initializeDataPlot(func.name, true);
+		for (double x = a; x <= b; x += resolution)
+		{
+			double y = func.func(x);
+			point p;
+			p.x = x;
+			p.y = y;
+			if (p.x > script->maxX)
+				script->maxX = p.x;
+			else if (p.x < script->minX)
+				script->minX = p.x;
+			if (p.y > script->maxY)
+				script->maxY = p.y;
+			else if (p.y < script->minY)
+				script->minY = p.y;
+			d->points.push_back(p);
+		}
+		script->dataPlots.push_back(d);
+	}
+
+	void plot(script *script, point point, string label)
+	{
+		dataPlot *d = initializeDataPlot(label, false);
+
+		if (point.x > script->maxX)
+			script->maxX = point.x;
+		else if (point.x < script->minX)
+			script->minX = point.x;
+		if (point.y > script->maxY)
+			script->maxY = point.y;
+		else if (point.y < script->minY)
+			script->minY = point.y;
+
+		d->points.push_back(point);
+		script->dataPlots.push_back(d);
+	}
+
+	void save(const script *script, ostream &stream)
+	{
+
+		//if (renderToFile)
+		//{
+		//	script << "set terminal pngcairo\n";
+		//	script << "set output \"" << fileName << ".png\"\n";
+		//}
+		//script << "set xlabel \"x\"\n";
+		//script << "set ylabel \"y\"\n";
+		//script << "set title \"\"\n";
+		stream << "set xzeroaxis\n" << "set yzeroaxis\n";
+		stream << "set xrange [ " << script->minX << " : " << script->maxX << " ]\n";
+		stream << "set yrange [ " << script->minY << " : " << script->maxY << " ]\n";
+		stream << "set mxtics "<< script->mxTic <<"\n";
+		stream << "set mytics " << script->myTic << "\n";
+		stream << "set xtics " << script->xTic << "\n";
+		stream << "set ytics " << script->xTic << "\n";
+
+		//plot "-" with lines title "f(x)="  \n;
+		stream << "plot ";
+		for (size_t i = 0; i < script->dataPlots.size(); i++)
+		{
+			dataPlot *d = script->dataPlots[i];
+			stream << "\"-\" ";
+			if (d->asLine)
+			{
+				stream << "with lines ";
+			}
+			stream << "title \"" << d->label << "\"";
+			if (i + 1 < script->dataPlots.size())
+			{
+				stream << ", ";
+			}
+		}
+		stream << "\n";
+		for (size_t i = 0; i < script->dataPlots.size(); i++)
+		{
+			gnuplot::dataPlot *d = script->dataPlots[i];
+			for (size_t p = 0; p < d->points.size(); p++)
+			{
+				stream << d->points[p].x << " " << d->points[p].y << "\n";
+			}
+			if (i + 1 < script->dataPlots.size())
+			{
+				stream << "e\n";
+			}
+		}
+		stream << "\n";
+	}
+	/*
 	void generateScript(
 		const char *fileName,
 		const double &resolution,
@@ -126,5 +260,5 @@ namespace gnuplot
 		script << "\n";
 		script.close();
 
-	}
+	}//*/
 }

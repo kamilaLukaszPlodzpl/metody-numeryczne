@@ -119,7 +119,7 @@
     <ClCompile Include="interpolation.cpp" />
     <ClCompile Include="gnuplot.cpp" />
     <ClCompile Include="main.cpp">
-      <FileType>CppClass</FileType>
+      <FileType>CppCode</FileType>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
       <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</DeploymentContent>
     </ClCompile>
