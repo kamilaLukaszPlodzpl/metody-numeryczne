@@ -16,49 +16,33 @@ int main(int argc, char* argv[])
 	ofstream out("script.plt");
 	ofstream out1("script1.plt");
 
-<<<<<<< HEAD
-	double searchedX = 14;
-	int nodes = 10;
-=======
 	double searchedX = 0.5;
-	int nodes = 100;
->>>>>>> lukasz
+	int nodes = 40;
+	
 	vector <gnuplot::point> points;
 
-	cout << "Wskaz liczbe wezlow inerpolacji:\n";
+	//cout << "Wskaz liczbe wezlow inerpolacji:\n";
 	//cin >> nodes;
-	double a = 1;
-	double b = 6;
-
+	double a = -100;
+	double b = 100;
+	nodes++;
 	chebyshevNodes(f.func, points, nodes,a,b);//chebyshevNodes generation
 	gnuplot::plot(script, f, points.front().x, points.back().x, 0.001);
 	gnuplot::plot(script, points, "chebysevNodes", false);
 	
-<<<<<<< HEAD
-	//cout << "Argument x dla, ktorego wartosc ma zostac poszukana: \n";
-	//cin >> searchedX;
-	
-	double value = interpolation( points, searchedX );
-	//cout << "Interpolowana wartoœæ funkcji to:" << value << '\n';
-	gnuplot::point i;
-	i.x = searchedX;
-	i.y = value;
-=======
 	points.erase(points.begin());
 
-	cout << "Argument x dla, ktorego wartosc ma zostac poszukana: \n";
+	//cout << "Argument x dla, ktorego wartosc ma zostac poszukana: \n";
 	//cin >> searchedX;
 
 	double value = 0;
 
 	vector<gnuplot::point> interpolatedPoints;
-	for (double x = script->minX; x <= script->maxX; x+=0.1)
+	for (double x = a; x <= b; x+=0.001)
 	{
 		gnuplot::point p;
 		p.x = x;
-		double a;
-		interpolation(points, p.x,a);
-		p.y = a;
+		p.y = interpolation(points, p.x);
 		interpolatedPoints.push_back(p);
 	}
 
@@ -67,7 +51,7 @@ int main(int argc, char* argv[])
 	//gnuplot::point i;
 	//i.x = searchedX;
 	//i.y = value;
->>>>>>> lukasz
+
 	gnuplot::save(script, out);
 	gnuplot::plot(script, interpolatedPoints, "interpolated", true);
 	//gnuplot::plot(script, i, "interpolated");

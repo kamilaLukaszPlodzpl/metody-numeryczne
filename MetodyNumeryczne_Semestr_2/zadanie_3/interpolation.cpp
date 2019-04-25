@@ -28,11 +28,11 @@ double interpolation( const vector <gnuplot::point> &points, double searchX ) {
 		double produce = 1.0;
 		for (int j = 0; j < points.size(); j++) {
 			if (j != i) {
-				cout << "//////////////////////////\n";
-				cout << "iterator j " << j << '\n';
-				cout << "i (" <<points[i].x<< " ; " << points[i].y << ")\n";
-				cout << "j (" << points[j].x << " ; " << points[j].y << ")\n";
-				cout << (searchX - points[j].x) <<"/"<< (points[i].x - points[j].x) <<"="  << ((searchX - points[j].x) / (points[i].x - points[j].x)) << '\n';
+				//cout << "//////////////////////////\n";
+				//cout << "iterator j " << j << '\n';
+				//cout << "i (" <<points[i].x<< " ; " << points[i].y << ")\n";
+				//cout << "j (" << points[j].x << " ; " << points[j].y << ")\n";
+				//cout << (searchX - points[j].x) <<"/"<< (points[i].x - points[j].x) <<"="  << ((searchX - points[j].x) / (points[i].x - points[j].x)) << '\n';
 				produce *= ( (searchX - points[j].x) / (points[i].x - points[j].x) );
 				//cout << "Wspolczynnik l:" << produce << '\n';
 			}
