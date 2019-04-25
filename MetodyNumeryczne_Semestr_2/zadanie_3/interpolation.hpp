@@ -7,5 +7,5 @@
 using namespace std;
 
 
-void chebyshevNodes(mathFunction::function function, vector <gnuplot::point> &points, int nodes);
-void interpolation(const vector <gnuplot::point> &points, double searchX, double &value);
+void chebyshevNodes(mathFunction::function function, vector <gnuplot::point> &points, int nodes, double a, double b);
+double interpolation(const vector <gnuplot::point> &points, double searchX);
