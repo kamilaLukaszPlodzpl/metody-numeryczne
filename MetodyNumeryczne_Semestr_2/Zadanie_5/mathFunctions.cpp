@@ -41,4 +41,5 @@ namespace mathFunction
 		arr.push_back(createFunctionMeta(mathFunctionList::f4, "exp(-x-x^2)"));
 		return arr;
 	}
+
 }

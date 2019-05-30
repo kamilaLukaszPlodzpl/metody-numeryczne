@@ -8,7 +8,6 @@ using namespace std;
 
 namespace math
 {
-
 	double simsonFormula(mathFunction::function f, double a, double b)
 	{
 		double h = abs((a-b) / 3.0);
