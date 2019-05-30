@@ -38,7 +38,6 @@ namespace math
 	}
 	double integralNewtonCotesInfinite(mathFunction::function f, double epsilon, double &a, double &b, int &iterations)
 	{
-<<<<<<< HEAD
 		double integral = 0.0;
 		double partIntegral,x = 0.0;
 		do
@@ -55,7 +54,6 @@ namespace math
 			integral += partIntegral;
 			x -= step;
 		} while (abs(partIntegral) > epsilon);
-=======
 		double integral = 0;
 		bool plus,minus;
 		b = limitPlusInf(f, epsilon, plus);
@@ -63,19 +61,15 @@ namespace math
 		int iter = 0;
 		integral = integralNewtonCotes(f,epsilon, a, b, iter);
 		iterations = iter;
->>>>>>> 213d68db11229393b5bc66748ec05ecc544ffa70
 		return integral;
 	}
 
 	double integralGaussaHermite(mathFunction::function f,int nodesNumber)
 	{
-<<<<<<< HEAD
 		double integral = 0.0;
 		vector<double> nodes = hermiteZeroPlaces(nodesNumber);
-=======
 		double integral = 0;
 		vector<Node> nodes = hermiteZeroPlaces(nodesNumber);
->>>>>>> 213d68db11229393b5bc66748ec05ecc544ffa70
 		for (int i = 0; i < nodes.size(); i++)
 		{
 			if (nodes[i].weight != 0)
