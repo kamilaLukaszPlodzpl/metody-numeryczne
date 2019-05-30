@@ -3,10 +3,16 @@
 #include "mathFunctions.hpp"
 namespace math
 {
+	struct Node
+	{
+		double value;
+		double weight;
+	};
 	double simsonFormula(mathFunction::function f, double a, double b);
-	double integralNewtonCotes(mathFunction::function f, double step, double a, double b);
-	double integralNewtonCotesInfinite(mathFunction::function f, double step, double epsilon);
+	double integralNewtonCotes(mathFunction::function f, double epsilon, double a, double b, int &iterations);
+	double integralNewtonCotesInfinite(mathFunction::function f, double epsilon, double &a, double &b, int &iterations);
 	double integralGaussaHermite(mathFunction::function f, int nodesNumber);
-	std::vector<double> hermiteZeroPlaces(int n);
-	double limit(mathFunction::function f, double x, bool &exist);
+	std::vector<Node> hermiteZeroPlaces(int n);
+	double limitPlusInf(mathFunction::function f, double epsilon, bool &exist);
+	double limitMinusInf(mathFunction::function f, double epsilon, bool &exist);
 }

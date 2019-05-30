@@ -8,27 +8,37 @@ using namespace std;
 
 namespace math
 {
-
 	double simsonFormula(mathFunction::function f, double a, double b)
 	{
-		double h = abs((a-b) / 3.0);
-		double simson = (f(a) +f((a + b) / 2.0) + f(b));
+		double h = abs(a-b)/3.0;
+		double simson = ( f(a)*exp(-(a*a)) +f((a+b)/2)*exp(-(((a+b)/2)*((a + b) / 2))) + f(b)*exp(-(b*b)) );
 		simson *= h;
-		//cout << setw(3) << h << "( " << setw(3) << a << " ; " << setw(3) << b << " ) simson: " << simson << "\n";
 		return simson;
 	}
-	double integralNewtonCotes(mathFunction::function f, double step, double a, double b)
+	double integralNewtonCotes(mathFunction::function f, double epsilon, double a, double b, int &iterations)
 	{
-		double integral = 0;
-		for (double x = a; x <= (b-step); x += step)
+		iterations = 0;
+		double step = abs(b-a);
+		double integralOld, integralNew = 0;
+		do
 		{
-			double simson = simsonFormula(f, x, x + step);
-			integral += simson;
-		}
-		return integral;
+			iterations++;
+			integralOld = integralNew;
+			step /= 10.0;
+			integralNew = 0;
+
+			for (double x = a; x <= (b - step); x += step)
+			{
+				double simson = simsonFormula(f, x, x + step);
+				integralNew += simson;
+			}
+
+		} while (abs(abs(integralNew)-abs(integralOld)) > epsilon );
+		return integralNew;
 	}
-	double integralNewtonCotesInfinite(mathFunction::function f,double step,double epsilon)
+	double integralNewtonCotesInfinite(mathFunction::function f, double epsilon, double &a, double &b, int &iterations)
 	{
+<<<<<<< HEAD
 		double integral = 0.0;
 		double partIntegral,x = 0.0;
 		do
@@ -45,82 +55,100 @@ namespace math
 			integral += partIntegral;
 			x -= step;
 		} while (abs(partIntegral) > epsilon);
+=======
+		double integral = 0;
+		bool plus,minus;
+		b = limitPlusInf(f, epsilon, plus);
+		a = limitMinusInf(f, epsilon, minus);
+		int iter = 0;
+		integral = integralNewtonCotes(f,epsilon, a, b, iter);
+		iterations = iter;
+>>>>>>> 213d68db11229393b5bc66748ec05ecc544ffa70
 		return integral;
 	}
 
 	double integralGaussaHermite(mathFunction::function f,int nodesNumber)
 	{
+<<<<<<< HEAD
 		double integral = 0.0;
 		vector<double> nodes = hermiteZeroPlaces(nodesNumber);
+=======
+		double integral = 0;
+		vector<Node> nodes = hermiteZeroPlaces(nodesNumber);
+>>>>>>> 213d68db11229393b5bc66748ec05ecc544ffa70
 		for (int i = 0; i < nodes.size(); i++)
 		{
-			double weight = exp(-(nodes[i] * nodes[i]));
-			double fx = f(nodes[i]);
-			integral += weight * fx;
+			if (nodes[i].weight != 0)
+			{
+				double weight = nodes[i].weight;
+				double fx = f(nodes[i].value);
+				integral += weight * fx;
+			}
 		}
 		return integral;
 	}
 
-	std::vector<double> hermiteZeroPlaces(int n)
+	std::vector<Node> hermiteZeroPlaces(int n)
 	{
-		vector<double> x;
+		vector<Node> x;
+		math::Node t;
 		switch (n)
 		{
 		case 2:
-			x.push_back(-0.707106781187);
-			x.push_back(0.707106781187);
+			t.value = -0.707107; t.weight = 0.886227; x.push_back(t);
+			t.value = 0.707107; t.weight = 0.886227; x.push_back(t);
 			break;
 		case 3:
-			x.push_back(-1.22474487139);
-			x.push_back(0);
-			x.push_back(1.22474487139);
+			t.value = -1.224745; t.weight = 0.295409; x.push_back(t);
+			t.value = 0.000000; t.weight = 1.181636; x.push_back(t);
+			t.value = 1.224745; t.weight = 0.295409; x.push_back(t);
 			break;
 		case 4:
-			x.push_back(-1.65068012389);
-			x.push_back(-0.524647623275);
-			x.push_back(0.524647623275);
-			x.push_back(1.65068012389);
+			t.value = -1.650680; t.weight = 0.081313; x.push_back(t);
+			t.value = -0.534648; t.weight = 0.804914; x.push_back(t);
+			t.value = 0.534648; t.weight = 0.804914; x.push_back(t);
+			t.value = 1.650680; t.weight = 0.081313; x.push_back(t);
 			break;
 		case 5:
-			x.push_back(-2.02018287046);
-			x.push_back(-0.958572464614);
-			x.push_back(0);
-			x.push_back(0.958572464614);
-			x.push_back(2.02018287046);
+			t.value = -2.020183; t.weight = 0.019953; x.push_back(t);
+			t.value = -0.958572; t.weight = 0.393619; x.push_back(t);
+			t.value = 0.000000; t.weight = 0.945309; x.push_back(t);
+			t.value = 0.958572; t.weight = 0.393619; x.push_back(t);
+			t.value = 2.020183; t.weight = 0.019953; x.push_back(t);
 			break;
 		}
 		return x;
 	}
 
-	double limit(mathFunction::function f, double x, bool &exist)
+	double limitPlusInf(mathFunction::function f, double epsilon, bool &exist)
 	{
-		double limitPlus = 0;
-		for (double h = 10; h > 0; h -= 0.0001)
+		double step = epsilon*100;
+		double x = 0;
+		double oldY, newY = f(x)*exp(-(x*x));
+		do
 		{
-			double newlimitPlus = (f(x + h) - f(x)) / h;
-			if (abs(newlimitPlus - limitPlus) <= 0.0001)
-			{
-				limitPlus = newlimitPlus;
-				break;
-			}
-			limitPlus = newlimitPlus;
-		}
-
-		double limitMinus = 0;
-		for (double h = -10; h < 0; h += 0.0001)
-		{
-			double newlimitMinus = (f(x + h) - f(x)) / h;
-			if (abs(newlimitMinus - limitMinus) <= 0.0001)
-			{
-				limitMinus = newlimitMinus;
-				break;
-			}
-			limitMinus = newlimitMinus;
-		}
-
-		double limit = (limitPlus + limitMinus) / 2;;
-		exist = ((limitMinus*limitPlus >= 0) && (abs(limitPlus - limitMinus) < 0.001)) ||
-			((limitMinus*limitPlus < 0) && (abs(limitPlus + limitMinus) < 0.001));
-		return limit;
+			oldY = newY;
+			x += step;
+			newY = f(x)*exp(-(x*x));
+		} while (abs(abs(oldY) - abs(newY)) > epsilon);
+		return x;
 	}
+
+	double limitMinusInf(mathFunction::function f, double epsilon, bool &exist)
+	{
+			//epsilon = 0.000000000000001;
+			double step = epsilon*100;
+			double x = 0;
+			double oldY, newY = f(x)*exp(-(x*x));
+			do
+			{
+				oldY = newY;
+				x -= step;
+				newY = f(x)*exp(-(x*x));
+			} while (abs(abs(oldY) - abs(newY)) > epsilon);
+			return x;
+	}
+
+
+
 }
