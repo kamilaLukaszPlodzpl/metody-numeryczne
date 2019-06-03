@@ -38,22 +38,6 @@ namespace math
 	}
 	double integralNewtonCotesInfinite(mathFunction::function f, double epsilon, double &a, double &b, int &iterations)
 	{
-		double integral = 0.0;
-		double partIntegral,x = 0.0;
-		do
-		{
-			partIntegral = simsonFormula(f, x, x + step);
-			integral += partIntegral;
-			x += step;
-		} while (abs(integral)>epsilon);
-		x = 0;
-		partIntegral = 0.0;
-		do
-		{
-			partIntegral = simsonFormula(f, x - step, x);
-			integral += partIntegral;
-			x -= step;
-		} while (abs(partIntegral) > epsilon);
 		double integral = 0;
 		bool plus,minus;
 		b = limitPlusInf(f, epsilon, plus);
@@ -66,8 +50,6 @@ namespace math
 
 	double integralGaussaHermite(mathFunction::function f,int nodesNumber)
 	{
-		double integral = 0.0;
-		vector<double> nodes = hermiteZeroPlaces(nodesNumber);
 		double integral = 0;
 		vector<Node> nodes = hermiteZeroPlaces(nodesNumber);
 		for (int i = 0; i < nodes.size(); i++)
