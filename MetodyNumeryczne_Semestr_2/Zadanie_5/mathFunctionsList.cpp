@@ -18,4 +18,7 @@ namespace mathFunctionList
 	double f4(double x) {// f(x)=exp(-x-x^2)
 		return exp(-x - (x*x));
 	}
+	double f5(double x) {// f(x)=|x|
+		return abs(x);
+	}
 }

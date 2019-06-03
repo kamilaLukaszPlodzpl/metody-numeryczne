@@ -1,12 +1,24 @@
 #pragma once
 #include <vector>
 #include "mathFunctions.hpp"
+#include "gnuplot.hpp"
 namespace math
 {
-	double simsonFormula(mathFunction::function f, double a, double b);
-	double integralNewtonCotes(mathFunction::function f, double step, double a, double b);
-	double integralNewtonCotesInfinite(mathFunction::function f, double step, double epsilon);
+
+	struct Node
+	{
+		double value;
+		double weight;
+	};
+	double horner(vector<double> a, double x);
+	double hermitePolynominal(unsigned int i, double x);
+	inline int factorial(int n);
+	inline int power(int x, int y);
+
+
+
+	double aproximationHermite(mathFunction::function f, int n, double x);
+	double aproximationHermiteFactor(mathFunction::function f, int n, int k);
 	double integralGaussaHermite(mathFunction::function f, int nodesNumber);
-	std::vector<double> hermiteZeroPlaces(int n);
-	double limit(mathFunction::function f, double x, bool &exist);
+	std::vector<Node> hermiteZeroPlaces(int n);
 }

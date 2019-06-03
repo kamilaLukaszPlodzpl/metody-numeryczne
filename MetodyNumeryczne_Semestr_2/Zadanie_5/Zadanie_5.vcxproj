@@ -123,12 +123,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="gnuplot.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mathFunctions.cpp" />
     <ClCompile Include="mathFunctionsList.cpp" />
     <ClCompile Include="mathUtility.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="gnuplot.hpp" />
     <ClInclude Include="mathFunctions.hpp" />
     <ClInclude Include="mathFunctionsList.hpp" />
     <ClInclude Include="mathUtility.hpp" />

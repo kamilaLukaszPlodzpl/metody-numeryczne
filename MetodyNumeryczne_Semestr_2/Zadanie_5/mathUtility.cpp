@@ -2,124 +2,144 @@
 #include <iomanip>
 #include <vector>
 #include "mathUtility.hpp"
+#include "gnuplot.hpp"
 #include "mathFunctions.hpp"
+#define	SQRT_PI 1.7724538509
 
 using namespace std;
 
 namespace math
 {
-	double simsonFormula(mathFunction::function f, double a, double b)
+	double horner(vector<double> a, double x)
 	{
-		double h = abs((a-b) / 3.0);
-		double simson = (f(a) +f((a + b) / 2.0) + f(b));
-		simson *= h;
-		//cout << setw(3) << h << "( " << setw(3) << a << " ; " << setw(3) << b << " ) simson: " << simson << "\n";
-		return simson;
+		double out = 0;
+		for (int i = 0; i < a.size(); i++)
+		{
+			out *= x;
+			out += a[i];
+		}
+		return out;
 	}
-	double integralNewtonCotes(mathFunction::function f, double step, double a, double b)
+	double hermitePolynominal(unsigned int i, double x)
+	{
+		vector<double> a;
+		switch (i) {
+		case 0:
+			a = { 1 };
+			break;
+		case 1:
+			a = { 2, 0 };
+			break;
+		case 2:
+			a = { 4, 0, -2 };
+			break;
+		case 3:
+			a = { 8, 0, -12, 0 };
+			break;
+		case 4:
+			a = { 16, 0, -48, 0, 12 };
+			break;
+		case 5:
+			a = { 32, 0, -160, 0, 120, 0 };
+			break;
+		case 6:
+			a = { 64, 0, -480, 0, 720, 0, -120 };
+			break;
+		case 7:
+			a = { 128, 0, -1344, 0, 3360, 0, -1680, 0 };
+			break;
+		default:
+			a = { };
+			break;
+		}
+		return horner(a, x);
+	}
+	inline int factorial(int n) 
+	{
+		int fact = 1;
+		for (int i = 1; i <= n; i++)
+			fact = fact * i;
+		return fact;
+	}
+	inline int power(int x, int y)
+	{
+		int o = 1;
+		for (int i = 0; i < y; i++)
+			o *= x;
+		return o;
+	}
+
+	double aproximationHermite(mathFunction::function f,int n,double x)
+	{
+		double sum = 0;
+		for (int k = 0; k <= n; k++)
+		{
+			double a;// = aproximationHermiteFactor(f, n, k);
+			a = 1 / (SQRT_PI * power(2,n) * factorial(n));
+			a = 1;
+			a *= integralGaussaHermite(f, k);
+
+			double h = hermitePolynominal(k, x);
+			sum += a * h;
+		}
+		return sum;
+	}
+	double aproximationHermiteFactor(mathFunction::function f, int n,int k)
+	{
+		//*
+		double result = 1 / (SQRT_PI * pow(2.0, n) * factorial(n));
+		result *= integralGaussaHermite(f, k);
+		return result;
+		//*/
+	}
+
+
+	double integralGaussaHermite(mathFunction::function f, int nodesNumber)
 	{
 		double integral = 0;
-		for (double x = a; x <= (b-step); x += step)
-		{
-			double simson = simsonFormula(f, x, x + step);
-			integral += simson;
-		}
-		return integral;
-	}
-	double integralNewtonCotesInfinite(mathFunction::function f,double step,double epsilon)
-	{
-		double integral = 0.0;
-		double partIntegral,x = 0.0;
-		do
-		{
-			partIntegral = simsonFormula(f, x, x + step);
-			integral += partIntegral;
-			x += step;
-		} while (abs(integral)>epsilon);
-		x = 0;
-		partIntegral = 0.0;
-		do
-		{
-			partIntegral = simsonFormula(f, x - step, x);
-			integral += partIntegral;
-			x -= step;
-		} while (abs(partIntegral) > epsilon);
-		return integral;
-	}
-
-	double integralGaussaHermite(mathFunction::function f,int nodesNumber)
-	{
-		double integral = 0.0;
-		vector<double> nodes = hermiteZeroPlaces(nodesNumber);
+		vector<Node> nodes = hermiteZeroPlaces(nodesNumber);
 		for (int i = 0; i < nodes.size(); i++)
 		{
-			double weight = exp(-(nodes[i] * nodes[i]));
-			double fx = f(nodes[i]);
-			integral += weight * fx;
+			if (nodes[i].weight != 0)
+			{
+				double weight = nodes[i].weight;
+				double fx = f(nodes[i].value)*hermitePolynominal(nodesNumber,nodes[i].value);
+				integral += weight * fx;
+			}
 		}
 		return integral;
 	}
 
-	std::vector<double> hermiteZeroPlaces(int n)
+	std::vector<Node> hermiteZeroPlaces(int n)
 	{
-		vector<double> x;
+		vector<Node> x;
+		math::Node t;
 		switch (n)
 		{
 		case 2:
-			x.push_back(-0.707106781187);
-			x.push_back(0.707106781187);
+			t.value = -0.707107; t.weight = 0.886227; x.push_back(t);
+			t.value = 0.707107; t.weight = 0.886227; x.push_back(t);
 			break;
 		case 3:
-			x.push_back(-1.22474487139);
-			x.push_back(0);
-			x.push_back(1.22474487139);
+			t.value = -1.224745; t.weight = 0.295409; x.push_back(t);
+			t.value = 0.000000; t.weight = 1.181636; x.push_back(t);
+			t.value = 1.224745; t.weight = 0.295409; x.push_back(t);
 			break;
 		case 4:
-			x.push_back(-1.65068012389);
-			x.push_back(-0.524647623275);
-			x.push_back(0.524647623275);
-			x.push_back(1.65068012389);
+			t.value = -1.650680; t.weight = 0.081313; x.push_back(t);
+			t.value = -0.534648; t.weight = 0.804914; x.push_back(t);
+			t.value = 0.534648; t.weight = 0.804914; x.push_back(t);
+			t.value = 1.650680; t.weight = 0.081313; x.push_back(t);
 			break;
 		case 5:
-			x.push_back(-2.02018287046);
-			x.push_back(-0.958572464614);
-			x.push_back(0);
-			x.push_back(0.958572464614);
-			x.push_back(2.02018287046);
+			t.value = -2.020183; t.weight = 0.019953; x.push_back(t);
+			t.value = -0.958572; t.weight = 0.393619; x.push_back(t);
+			t.value = 0.000000; t.weight = 0.945309; x.push_back(t);
+			t.value = 0.958572; t.weight = 0.393619; x.push_back(t);
+			t.value = 2.020183; t.weight = 0.019953; x.push_back(t);
 			break;
 		}
 		return x;
 	}
 
-	double limit(mathFunction::function f, double x, bool &exist)
-	{
-		double limitPlus = 0;
-		for (double h = 10; h > 0; h -= 0.0001)
-		{
-			double newlimitPlus = (f(x + h) - f(x)) / h;
-			if (abs(newlimitPlus - limitPlus) <= 0.0001)
-			{
-				limitPlus = newlimitPlus;
-				break;
-			}
-			limitPlus = newlimitPlus;
-		}
-
-		double limitMinus = 0;
-		for (double h = -10; h < 0; h += 0.0001)
-		{
-			double newlimitMinus = (f(x + h) - f(x)) / h;
-			if (abs(newlimitMinus - limitMinus) <= 0.0001)
-			{
-				limitMinus = newlimitMinus;
-				break;
-			}
-			limitMinus = newlimitMinus;
-		}
-
-		double limit = (limitPlus + limitMinus) / 2;;
-		exist = ((limitMinus*limitPlus >= 0) && (abs(limitPlus - limitMinus) < 0.001)) ||
-			((limitMinus*limitPlus < 0) && (abs(limitPlus + limitMinus) < 0.001));
-		return limit;
-	}
 }

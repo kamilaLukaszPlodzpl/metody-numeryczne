@@ -39,6 +39,7 @@ namespace mathFunction
 		arr.push_back(createFunctionMeta(mathFunctionList::f2, "-abs(0.01x)+1"));
 		arr.push_back(createFunctionMeta(mathFunctionList::f3, "x^2+3"));
 		arr.push_back(createFunctionMeta(mathFunctionList::f4, "exp(-x-x^2)"));
+		arr.push_back(createFunctionMeta(mathFunctionList::f5, "|x|"));
 		return arr;
 	}
 
