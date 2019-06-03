@@ -69,32 +69,30 @@ namespace math
 		return o;
 	}
 
-	double aproximationHermite(mathFunction::function f,int n,double x)
+	double aproximationHermite(mathFunction::function f, int approxSteps, int integralNodes, double x)
 	{
 		double sum = 0;
-		for (int k = 0; k <= n; k++)
+		for (int k = 0; k <= approxSteps; k++)
 		{
-			double a;// = aproximationHermiteFactor(f, n, k);
-			a = 1 / (SQRT_PI * power(2,n) * factorial(n));
-			a = 1;
-			a *= integralGaussaHermite(f, k);
+			double a = 1;// = aproximationHermiteFactor(f, approxSteps, k);
+			a = 1 / (SQRT_PI * power(2,approxSteps) * factorial(approxSteps));
+			a *= integralGaussaHermite(f, integralNodes, k);
 
 			double h = hermitePolynominal(k, x);
 			sum += a * h;
 		}
 		return sum;
 	}
-	double aproximationHermiteFactor(mathFunction::function f, int n,int k)
-	{
+	//double aproximationHermiteFactor(mathFunction::function f, int n, int k)
+	//{
 		//*
-		double result = 1 / (SQRT_PI * pow(2.0, n) * factorial(n));
-		result *= integralGaussaHermite(f, k);
-		return result;
+		//double result = 1 / (SQRT_PI * pow(2.0, n) * factorial(n));
+		//result *= integralGaussaHermite(f, k);
+		//return result;
 		//*/
-	}
+	//}
 
-
-	double integralGaussaHermite(mathFunction::function f, int nodesNumber)
+	double integralGaussaHermite(mathFunction::function f, int nodesNumber,int approxStep)
 	{
 		double integral = 0;
 		vector<Node> nodes = hermiteZeroPlaces(nodesNumber);
@@ -103,7 +101,7 @@ namespace math
 			if (nodes[i].weight != 0)
 			{
 				double weight = nodes[i].weight;
-				double fx = f(nodes[i].value)*hermitePolynominal(nodesNumber,nodes[i].value);
+				double fx = f(nodes[i].value)*hermitePolynominal(approxStep,nodes[i].value);
 				integral += weight * fx;
 			}
 		}

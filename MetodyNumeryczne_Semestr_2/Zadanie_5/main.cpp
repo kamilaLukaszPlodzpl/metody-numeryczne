@@ -13,6 +13,7 @@ int main() {
 	mathFunction::functionMeta f;
 	double a, b;
 	int nodes;
+	int approxSteps;
 //Te hashtagi to s¹ dyrektywy preprocesora
 //Takie coœ co siê dzieje przed kompilacj¹
 #ifdef INPUT_DISABLED 
@@ -20,15 +21,19 @@ int main() {
 	b = 1;
 	a = -b;
 	nodes = 5;
+	approxSteps = 7;
 	cout << "Funkcja: " << f.name << "\n";
 	cout << "Przedzial aproksymacji: ( " << a << " ; " << b << " )\n";
-	cout << "Ilosc wezlow: " << nodes << "\n";
+	cout << "Stopien aproksymacji" << approxSteps << "\n";
+	cout << "Ilosc wezlow calkowania: " << nodes << "\n";
 #else
 	mathFunction::selectFunction(f);
 	cout << "Podaj przedzial aproksymacji:\n";
 	cin >> a >> b;
 	cout << "Podaj ilosc wezlow\n";
 	cin >> nodes;
+	cout << "Podaj stopien aproksymacji\n";
+	cin >> approxSteps;
 #endif
 
 	vector<gnuplot::point> points;
@@ -44,7 +49,7 @@ int main() {
 	{
 		gnuplot::point p;
 		p.x = i;
-		p.y = math::aproximationHermite(f.func, nodes, p.x);
+		p.y = math::aproximationHermite(f.func, approxSteps, nodes, p.x);
 		approximatedPoints.push_back(p);
 	}
 

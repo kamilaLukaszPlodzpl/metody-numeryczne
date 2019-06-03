@@ -17,8 +17,8 @@ namespace math
 
 
 
-	double aproximationHermite(mathFunction::function f, int n, double x);
+	double aproximationHermite(mathFunction::function f, int approxSteps, int integralNodes, double x);
 	double aproximationHermiteFactor(mathFunction::function f, int n, int k);
-	double integralGaussaHermite(mathFunction::function f, int nodesNumber);
+	double integralGaussaHermite(mathFunction::function f, int nodesNumber, int approxStep);
 	std::vector<Node> hermiteZeroPlaces(int n);
 }
